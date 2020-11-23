@@ -1,2 +1,2 @@
 # startup-incubator
-A website for showcase products pre-release
+A website to showcase products pre-release
