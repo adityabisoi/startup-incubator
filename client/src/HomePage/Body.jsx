@@ -7,7 +7,7 @@ const Body = () => {
             <Grid>
                 <Grid.Row style={{ border: '1px solid black', margin: '2rem 0' }}>
                     <Grid.Column width={2}>
-                        <Image src='/images/logo-placeholder.png' size='small' />
+                        <Image src='/Images/logo-placeholder.png' size='small' />
                     </Grid.Column>
                     <Grid.Column width={10} textAlign='left'>
                         <Header as='h2'>Heading</Header>
@@ -22,7 +22,7 @@ const Body = () => {
 
                 <Grid.Row style={{ border: '1px solid black', margin: '2rem 0' }}>
                     <Grid.Column width={2}>
-                        <Image src='/images/logo-placeholder.png' size='small' />
+                        <Image src='/Images/logo-placeholder.png' size='small' />
                     </Grid.Column>
                     <Grid.Column width={10} textAlign='left'>
                         <Header as='h2'>Heading</Header>
@@ -37,7 +37,7 @@ const Body = () => {
 
                 <Grid.Row style={{ border: '1px solid black', margin: '2rem 0' }}>
                     <Grid.Column width={2}>
-                        <Image src='/images/logo-placeholder.png' size='small' />
+                        <Image src='/Images/logo-placeholder.png' size='small' />
                     </Grid.Column>
                     <Grid.Column width={10} textAlign='left'>
                         <Header as='h2'>Heading</Header>

@@ -6,7 +6,7 @@ const Headers = () => {
             <Grid>
                 <Grid.Row>
                     <Grid.Column width={2}>
-                        <Image src='images/icon.jpg' style={{ width: '120px', margin: '0 2rem' }} />
+                        <Image src='Images/icon.jpg' style={{ width: '120px', margin: '0 2rem' }} />
                     </Grid.Column>
                     <Grid.Column style={{ marginRight: '2rem' }} width={13} verticalAlign='middle' textAlign='right'>
                         <Button color='yellow' basic>Login</Button>
