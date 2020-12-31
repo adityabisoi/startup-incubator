@@ -3,7 +3,7 @@
 # startup-incubator
 
 <p align="center" width="100%">
-    <img width="300" src="https://github.com/adityabisoi/startup-incubator/blob/main/icon.jpg"> 
+    <img width="300" src="https://github.com/adityabisoi/startup-incubator/blob/main/icon.png"> 
 </p>
 
 A website to help startups and starup enthusiasts showcase their project and ideas pre-release. This will help them get customer as well as professional reviews before deployment of the actual product/ when the are in a early growing stage. This results in faster growth and cutting down unnecessary rollback expenses post-deployment.
