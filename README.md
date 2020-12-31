@@ -10,6 +10,11 @@ A website to help startups and starup enthusiasts showcase their project and ide
 
 The project has to be developed from scratch. Please see the goals and wireframes in the documentation to get started.
 
+## Installation
+Follow the instructions to get started with the project on your local machine 🚀
+* Fork and clone the project
+* `cd fetch/` and run `npm install` to install dependencies
+* Run `npm run dev` to run the project on development
 
 ## Documentation
 To understand the aim, scope and technologies to be used in the project, please see the [documentation](https://bit.ly/2J5XSHm)
