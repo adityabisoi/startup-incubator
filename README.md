@@ -6,7 +6,7 @@
     <img width="300" src="https://github.com/adityabisoi/startup-incubator/blob/main/icon.png"> 
 </p>
 
-A website to help startups and starup enthusiasts showcase their project and ideas pre-release. This will help them get customer as well as professional reviews before deployment of the actual product/ when the are in a early growing stage. This results in faster growth and cutting down unnecessary rollback expenses post-deployment.
+A website to help startups and startup enthusiasts showcase their project and ideas pre-release. This will help them get customer as well as professional reviews before deployment of the actual product/ when the are in a early growing stage. This results in faster growth and cutting down unnecessary rollback expenses post-deployment.
 
 The project has to be developed from scratch. Please see the goals and wireframes in the documentation to get started.
 
