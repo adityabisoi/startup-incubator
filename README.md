@@ -25,3 +25,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 
 This project is licensed under the GPL V3 License - see the [LICENSE.md](https://github.com/adityabisoi/startup-incubator/blob/main/LICENSE) file for details
+
+##  Open Source Events 
+ <img  src="https://vchrombiediary.files.wordpress.com/2017/12/screenshot-from-2017-12-05-17-02-03-another-copy-e1512483232128.png" href="https://kwoc.kossiitkgp.org/">
