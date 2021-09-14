@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Adi7171/startup-incubator.git"
+    "url": "git+ https://github.com/adityabisoi/startup-incubator/.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Adi7171/startup-incubator/issues"
+    "url": " https://github.com/adityabisoi/startup-incubator/issues"
   },
-  "homepage": "https://github.com/Adi7171/startup-incubator#readme",
+  "homepage": " https://github.com/adityabisoi/startup-incubator/#readme",
   "dependencies": {
     "express": "^4.17.1"
   }
