@@ -22,6 +22,10 @@ To understand the aim, scope and technologies to be used in the project, please 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## Help & support
+
+If you are stuck somewhere or do not understand what to do, feel free to reach out to mentors in the official [Gitter Channel](https://gitter.im/startup-incubator/community).
+
 ## License
 This project is licensed under the GPL V3 License - see the [LICENSE.md](https://github.com/adityabisoi/startup-incubator/blob/main/LICENSE) file for details
 
