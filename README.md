@@ -10,6 +10,14 @@ A website to help startup companies and college students showcase their project 
 
 The project has to be developed from scratch. Please see the goals and wireframes in the documentation to get started.
 
+# Table of Contents
+  - [Installation](#installation)
+  - [Documentation](#documentation)
+  - [Contributing](#contributing)
+  - [Help & support](#help--support)
+  - [License](#license)
+  - [Open Source Events](#open-source-events)
+
 ## Installation
 Follow the instructions to get started with the project on your local machine 🚀
 * Fork and clone the project
