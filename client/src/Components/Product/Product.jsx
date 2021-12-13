@@ -1,22 +1,33 @@
 import React from 'react';
-import { Grid, Button ,Icon ,Image, Header } from 'semantic-ui-react';
+import { useParams } from 'react-router-dom';
+import {dummyProducts as data} from '../../utils/constants';
+import Description from './Description';
+import CommentSection from './CommentSection';
 
-const Product = ({heading ,description ,image ,likes }) => (
-    <Grid.Row style={{ border: '1px solid black', margin: '2rem 0' }}>
-        <Grid.Column width={2}>
-          <Image src={image} size='small' />
-        </Grid.Column>
-        <Grid.Column width={10} textAlign='left'>
-            <Header as='h2'>{heading}</Header>
-            <p>{description}</p>
-        </Grid.Column>
-        <Grid.Column width={3} textAlign='right' verticalAlign='middle'>
-          <Button icon labelPosition='left' style={{ height: '100px' }}>
-            <Icon name='arrow alternate circle up' />
-            {likes}
-          </Button>
-        </Grid.Column>
-  </Grid.Row>
-);
+const Product = () => {
+    const style = {
+        minHeight: '750px',
+        margin: '0 auto',
+        padding: '1.5em',
+        width: '80%',
+        background: '#FFFFFF',
+        boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.3)',
+        borderRadius: '4px',
+        overflow: 'hidden'
+    };
+
+    let params = useParams();
+    
+    return (
+        <div style={style}>
+
+            <h1>Product {params.product_id} is rendered</h1>
+            <Description></Description>
+            
+            <div style = {{marginTop : '4em'}}><h2>Comments</h2></div>
+            <CommentSection product_data = {data[params.product_id - 1]}></CommentSection>
+        </div>
+    );
+}
 
 export default Product;
