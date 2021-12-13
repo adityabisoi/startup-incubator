@@ -24,6 +24,10 @@
   color: white;
 }
 
+.link-1:hover{
+  background-color: orange;
+}
+
 .App-link {
   color: #61dafb;
 }
