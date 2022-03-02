@@ -4,7 +4,8 @@ import Headers from "./HomePage/Header";
 import Body from "./HomePage/Body";
 import Footer from "./HomePage/Footer";
 import Product from './Components/Product/Product'
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import ScrollButton from './Components/ScrollButton/ScrollButton';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -16,21 +17,25 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="App">
-        <Headers />
-        <Routes>
-          <Route path="/" exact element={<Body />}></Route>
-          <Route path="product_details">
-            <Route path=":product_id"  element={<Product />}></Route>
-          </Route>
-        </Routes>
+    <>
+      <Router>
+        <div className="App">
+          <Headers />
+          <Routes>
+            <Route path="/" exact element={<Body />}></Route>
+            <Route path="product_details">
+              <Route path=":product_id" element={<Product />}></Route>
+            </Route>
+          </Routes>
 
-        {/* <p>{!data ? "Loading..." : data}</p> */}
-        {/* The above line is replaced by helloworld when backend is running */}
-        <Footer />
-      </div>
-    </Router>
+          {/* <p>{!data ? "Loading..." : data}</p> */}
+          {/* The above line is replaced by helloworld when backend is running */}
+          <ScrollButton />
+          <Footer />
+        </div>
+      </Router>
+      
+    </>
   );
 }
 
