@@ -1,20 +1,39 @@
 import React from 'react';
-import { Button, Grid, Image } from 'semantic-ui-react'
+import { Navbar,Container,Nav,Form,FormControl,Button } from 'react-bootstrap';
 const Headers = () => {
     return (
-        <div style={{ border: '1px solid black', backgroundColor: 'lightblue' }}>
-            <Grid>
-                <Grid.Row>
-                    <Grid.Column width={2}>
-                        <Image src='Images/icon.jpg' style={{ width: '120px', margin: '0 2rem' }} />
-                    </Grid.Column>
-                    <Grid.Column style={{ marginRight: '2rem' }} width={13} verticalAlign='middle' textAlign='right'>
-                        <Button color='yellow' basic>Login</Button>
-                        <Button color='blue' basic>SignUp</Button>
-                    </Grid.Column>
-                </Grid.Row>
-            </Grid>
-        </div>
+<Navbar bg="light" variant="light" expand="lg">
+  <Container>
+    <Navbar.Brand href="#home">
+    <img
+        src='Images/icon_without_bg.png'
+        width="100"
+        height="80"
+        className="d-inline-block align-top"
+        alt="React Bootstrap logo"
+      />
+      
+      </Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+    <Form className="d-flex">
+        <FormControl
+          type="search"
+          placeholder="Search startups"
+          className="me-2"
+          aria-label="Search"
+        />
+        <Button variant="outline-success">Search</Button>
+      </Form>
+      <Nav>
+        
+        <Nav.Link href="#login" className="btn btn-outline-warning mx-2 my-2 my-lg-0">Login</Nav.Link>
+        <Nav.Link href="#signup" className="btn btn-outline-info mx-2 my-2 my-lg-0">Sign Up</Nav.Link>
+       
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
     )
 }
 
