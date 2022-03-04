@@ -1,11 +1,11 @@
-.scrollButton {
+.scrollButtonContainer {
     display: flex;
     justify-content: center;
     padding-right: 10px;
     margin-bottom: 1rem;
 }
 
-button {
+.scrollButton {
     width: 50px;
     height: 50px;
     font-size: 11px;
@@ -20,7 +20,7 @@ button {
     cursor: pointer;    
 }
   
-button:hover {
+.scrollButton:hover {
     background-color: #fff;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
     transform: translateY(-5px);
