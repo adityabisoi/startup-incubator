@@ -1,36 +1,32 @@
-import React from "react";
+import React,{useEffect,useState} from 'react'
 import "./App.css";
 import Headers from "./HomePage/Header";
-import Body from "./HomePage/Body";
-import Footer from "./HomePage/Footer";
-import Product from './Components/Product/Product'
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Home from "./component/Home/Home";
+import PostDetails from "./component/PostDetails/ProductDetails";
 
-function App() {
+import { BrowserRouter,Route, Redirect } from 'react-router-dom';
+import {Switch} from "react-router-dom";
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+const App=()=> {
+  const history = useHistory();
+  const dispatch =useDispatch();
   const [data, setData] = React.useState(null);
 
-  React.useEffect(() => {
-    fetch("/express_backend")
-      .then((res) => res.json())
-      .then((data) => setData(data.express));
-  }, []);
+
 
   return (
-    <Router>
+  
       <div className="App">
+        <BrowserRouter>
         <Headers />
-        <Routes>
-          <Route path="/" exact element={<Body />}></Route>
-          <Route path="product_details">
-            <Route path=":product_id"  element={<Product />}></Route>
-          </Route>
-        </Routes>
-
-        {/* <p>{!data ? "Loading..." : data}</p> */}
-        {/* The above line is replaced by helloworld when backend is running */}
-        <Footer />
+        <Switch>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/product/:id"  component={PostDetails} />
+          </Switch>
+        </BrowserRouter>
       </div>
-    </Router>
+  
   );
 }
 

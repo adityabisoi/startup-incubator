@@ -1,9 +1,30 @@
-const express = require("express");
-const app = express();
-const port = process.env.PORT || 5000;
+import express from "express";
+const app= express();
+import mongoose from 'mongoose';
+import bodyParser from "body-parser";
+import cors from "cors";
+import dotenv from "dotenv";
+import routes from "./router/product.js";
 
-app.listen(port, () => console.log(`Listening on port ${port}`)); //
+app.use(express.json());
+app.use(cors());
 
-app.get("/express_backend", (req, res) => {
-  res.send({ express: "Helloworld" });
-});
+dotenv.config();
+app.use(bodyParser.json({limit:"100mb" , extended:true}))
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }))
+
+app.use("/product",routes)
+app.get("/",(req,res)=>{
+    res.send("hello")
+})
+const db="please write here db";
+ const PORT= 3001;
+mongoose.connect(db).then(()=>{
+    console.log("conn successfull")
+}).catch((e)=>{
+    console.log("n conn",e)
+})
+
+app.listen(PORT,()=>{
+    console.log("server is runing");
+}) 

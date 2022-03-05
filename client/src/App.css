@@ -1,42 +1,80 @@
-.App {
-  text-align: center;
+.note {
+  align-items: flex-end;
+  width: 226px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 10px #ccc;
+  display: inline-block;
+  margin: 8px 15px;
+}
+.note-h1 {
+  font-size: 15px;
+  padding: 1px 7px;
+  margin-top: 11px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.note-p {
+  font-size: 17px;
+  padding: 1px 7px;
+  margin-top: 2px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.note_button {
+  margin-left: 154px;
+  position: relative;
+  border: none;
+  border-radius: 41px;
+  background-color: #f5ba13;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+.main_note {
+  background: #fff;
+  border-radius: 7px;
   display: flex;
+  width: 416px;
+  /* height: 110px; */
+ 
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  box-shadow: 0 2px 10px #ccc;
+}
+body {
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 }
 
-.link-1:hover{
-  background-color: orange;
+.main_note input,
+textarea {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 5px 1px;
+  font-size: larger;
+  outline: none;
+  border: none;
+  width: 96%;
+  font-family: inherit;
 }
-
-.App-link {
-  color: #61dafb;
+.main_note_button {
+  position: relative;
+  bottom: -25px;
+  border: none;
+  border-radius: 41px;
+  background-color: #fff;
+  width: 36px;
+ 
+  height: 36px;
+  cursor: pointer;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.main_note_button-div{
+width: 100%;
+}
+@media (max-width: 469px) {
+  .main_note {
+    width: 381px;
   }
 }
