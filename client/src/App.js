@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Headers from "./HomePage/Header";
 import Body from "./HomePage/Body";
+import AboutUs from "./Components/AboutUs/AboutUs";
 import Footer from "./HomePage/Footer";
 import Product from './Components/Product/Product'
 import ScrollButton from './Components/ScrollButton/ScrollButton';
@@ -23,6 +24,7 @@ function App() {
           <Headers />
           <Routes>
             <Route path="/" exact element={<Body />}></Route>
+            <Route path="/aboutus" element={<AboutUs />}></Route>
             <Route path="product_details">
               <Route path=":product_id" element={<Product />}></Route>
             </Route>
