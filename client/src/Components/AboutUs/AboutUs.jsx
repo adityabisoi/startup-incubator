@@ -35,7 +35,7 @@ const AboutUs = () => {
                 </div>
                 <div className="bottom_box">
                     <div className="bottom_header">
-                        Meet the minds behind Car Wash
+                        Meet the minds behind Startup Incubator
                     </div>
                     <div className="mid" >
                         <div  className="card1">
