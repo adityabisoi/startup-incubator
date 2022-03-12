@@ -30,8 +30,8 @@ const ScrollButton = () => {
     }, []);
 
     return (
-        <div className="scrollButton">
-            <button type="button" onClick={scrollToTop}
+        <div className="scrollButtonContainer">
+            <button type="scrollButton" onClick={scrollToTop}
                 style={{
                     display: showButton ? 'inline' : 'none',
                 }}>
