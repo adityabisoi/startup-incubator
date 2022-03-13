@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import "./App.css";
+
 import Headers from "./HomePage/Header";
 import Home from "./component/Home/Home";
 import PostDetails from "./component/PostDetails/ProductDetails";
