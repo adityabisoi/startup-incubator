@@ -1,1 +1,31 @@
+.main_note input,
+textarea {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 5px 1px;
+  font-size: larger;
+  outline: none;
+  border: none;
+  width: 96%;
+  font-family: inherit;
+}
+.main_note_button {
+  position: relative;
+  bottom: -25px;
+  border: none;
+  border-radius: 41px;
+  background-color: #fff;
+  width: 36px;
+ 
+  height: 36px;
+  cursor: pointer;
+}
+.main_note_button-div{
+width: 100%;
+}
+@media (max-width: 469px) {
+  .main_note {
+    width: 381px;
+  }
+}
 

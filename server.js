@@ -17,7 +17,7 @@ app.use("/product",routes)
 app.get("/",(req,res)=>{
     res.send("hello")
 })
-const db="please write here db";
+const db="";
  const PORT= 3001;
 mongoose.connect(db).then(()=>{
     console.log("conn successfull")
