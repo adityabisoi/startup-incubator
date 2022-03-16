@@ -23,7 +23,7 @@ function App() {
     <>
       <Router>
         <div className="App">
-          <Headers />
+          <Headers val="Login" />
           <Routes>
             <Route path="/" exact element={<Body />}></Route>
             <Route path="product_details">
