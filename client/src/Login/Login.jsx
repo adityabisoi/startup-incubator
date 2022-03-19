@@ -8,6 +8,7 @@ import LockIcon from "@mui/icons-material/Lock";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmpassword,setconfirmPassword] = useState("")
   const [isLoading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -21,6 +22,9 @@ function Login() {
     else if (!password) {
       setMessage("Password shouldn't be empty");
     } 
+    else if(password != confirmpassword) {
+      setMessage("Password and Confirm password dont match")
+    }
     else {
       // handle login with server and setMessage accordingly
       setMessage("Login successful");
@@ -52,6 +56,16 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
+          />
+        </div>
+        
+        <div className="input_element">
+          <LockIcon />
+          <input
+            type="password"
+            value={confirmpassword}
+            onChange={(e) => setconfirmPassword(e.target.value)}
+            placeholder="Confirm Password"
           />
         </div>
 
