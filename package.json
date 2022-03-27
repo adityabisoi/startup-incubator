@@ -19,6 +19,8 @@
   },
   "homepage": " https://github.com/adityabisoi/startup-incubator/#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^6.2.8",
+    "validator": "^13.7.0"
   }
 }
