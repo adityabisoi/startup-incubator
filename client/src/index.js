@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Ap from './Ap';
 import {Provider} from "react-redux"
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css';
@@ -13,7 +13,7 @@ const store = createStore(reducers,composeWithDevTools(applyMiddleware(thunk)),w
 ReactDOM.render(
   <React.StrictMode>
    <Provider store={store}>
-    <App />
+    <Ap />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

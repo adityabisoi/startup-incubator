@@ -18,7 +18,7 @@ app.get("/",(req,res)=>{
     res.send("hello")
 })
 const db="";
- const PORT= 3001;
+ const PORT= 5000;
 mongoose.connect(db).then(()=>{
     console.log("conn successfull")
 }).catch((e)=>{

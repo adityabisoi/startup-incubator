@@ -11,9 +11,6 @@ import { useDispatch } from 'react-redux';
 const App=()=> {
   const history = useHistory();
   const dispatch =useDispatch();
-  const [data, setData] = React.useState(null);
-
-
 
   return (
   
