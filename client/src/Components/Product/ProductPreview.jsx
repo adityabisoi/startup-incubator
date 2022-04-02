@@ -4,6 +4,7 @@ import { Grid, Button ,Icon ,Image, Header } from 'semantic-ui-react';
 
 const ProductPreview = ({id, heading ,description ,image ,likes }) => {
     let linkStyle = {border:'1px solid orange', padding: '0.3em', borderRadius:'5px'};
+    const [currentLikes,setCurrentLikes] = React.useState(likes);
 
     return <Grid.Row style={{ border: '1px solid black', margin: '2rem 0' }}>
         <Grid.Column width={2}>
@@ -15,9 +16,9 @@ const ProductPreview = ({id, heading ,description ,image ,likes }) => {
             <Link to={`/product_details/${id}`} class="link-1" style={linkStyle}>Details</Link>
         </Grid.Column>
         <Grid.Column width={3} textAlign='right' verticalAlign='middle'>
-          <Button icon labelPosition='left' style={{ height: '100px' }}>
+          <Button icon labelPosition='left' style={{ height: '100px' }} onClick={()=>setCurrentLikes(currentLikes+1)}>
             <Icon name='arrow alternate circle up' />
-            {likes}
+            {currentLikes}
           </Button>
         </Grid.Column>
   </Grid.Row>
