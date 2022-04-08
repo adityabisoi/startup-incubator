@@ -1,27 +1,51 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import { Grid, Button ,Icon ,Image, Header } from 'semantic-ui-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Grid, Button, Icon, Image, Header } from "semantic-ui-react";
 
-const ProductPreview = ({id, heading ,description ,image ,likes }) => {
-    let linkStyle = {border:'1px solid orange', padding: '0.3em', borderRadius:'5px'};
-    const [currentLikes,setCurrentLikes] = React.useState(likes);
+const ProductPreview = ({ id, heading, description, image, likes }) => {
+  let linkStyle = {
+    border: "1px solid orange",
+    padding: "0.3em",
+    borderRadius: "5px",
+  };
+  const [currentLikes, setCurrentLikes] = React.useState(likes);
+  const str = localStorage.getItem("dummyProducts");
+  const parsedObj = JSON.parse(str);
 
-    return <Grid.Row style={{ border: '1px solid black', margin: '2rem 0' }}>
-        <Grid.Column width={2}>
-          <Image src={image} size='small' />
-        </Grid.Column>
-        <Grid.Column width={10} textAlign='left'>
-            <Header as='h2'>{heading}</Header>
-            <p>{description}</p>
-            <Link to={`/product_details/${id}`} class="link-1" style={linkStyle}>Details</Link>
-        </Grid.Column>
-        <Grid.Column width={3} textAlign='right' verticalAlign='middle'>
-          <Button icon labelPosition='left' style={{ height: '100px' }} onClick={()=>setCurrentLikes(currentLikes+1)}>
-            <Icon name='arrow alternate circle up' />
-            {currentLikes}
-          </Button>
-        </Grid.Column>
-  </Grid.Row>
+  function changeLikes() {
+    setCurrentLikes(currentLikes + 1);
+    parsedObj[id - 1].likes = currentLikes + 1;
+    const jsonObj = JSON.stringify(parsedObj);
+    localStorage.setItem("dummyProducts", jsonObj);
+    const str1 = localStorage.getItem("dummyProducts");
+    const parsedObj2 = JSON.parse(str);
+  }
+
+  return (
+    <Grid.Row style={{ border: "1px solid black", margin: "2rem 0" }}>
+      <Grid.Column width={2}>
+        <Image src={image} size="small" />
+      </Grid.Column>
+      <Grid.Column width={10} textAlign="left">
+        <Header as="h2">{heading}</Header>
+        <p>{description}</p>
+        <Link to={`/product_details/${id}`} class="link-1" style={linkStyle}>
+          Details
+        </Link>
+      </Grid.Column>
+      <Grid.Column width={3} textAlign="right" verticalAlign="middle">
+        <Button
+          icon
+          labelPosition="left"
+          style={{ height: "100px" }}
+          onClick={changeLikes}
+        >
+          <Icon name="arrow alternate circle up" />
+          {currentLikes}
+        </Button>
+      </Grid.Column>
+    </Grid.Row>
+  );
 };
 
 export default ProductPreview;
