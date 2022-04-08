@@ -10,6 +10,7 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmpassword, setconfirmPassword] = useState("");
   const [isLoading, setisLoading] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -19,14 +20,21 @@ function Register() {
 
     if (!name) {
       setMessage("Name shouldn't be empty");
-    } 
+    }
     else if (!email) {
       setMessage("Email shouldn't be empty");
     }
-     else if (!password) {
+    else if (!password) {
       setMessage("Password shouldn't be empty");
     }
-     else {
+    else if (!confirmpassword) {
+      setMessage("Confirm Password shouldn't be empty");
+    }
+    
+    else if (password !== confirmpassword) {
+      setMessage("Password and Confirm password do not match");
+    }
+    else {
       // handle login with server and setMessage accordingly
       setMessage("User successfully registered");
     }
@@ -51,22 +59,31 @@ function Register() {
 
         <div className="input_element">
           <MailIcon />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-        />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+          />
         </div>
 
         <div className="input_element">
           <LockIcon />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+        </div>
+        <div className="input_element">
+          <LockIcon />
+          <input
+            type="password"
+            value={confirmpassword}
+            onChange={(e) => setconfirmPassword(e.target.value)}
+            placeholder="Confirm Password"
+          />
         </div>
 
         <button type="submit">Register</button>
