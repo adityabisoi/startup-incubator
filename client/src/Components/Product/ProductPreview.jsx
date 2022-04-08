@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Grid, Button, Icon, Image, Header } from "semantic-ui-react";
+import {dummyProducts} from "../../utils/constants"
 
 const ProductPreview = ({ id, heading, description, image, likes }) => {
   let linkStyle = {
@@ -8,17 +9,18 @@ const ProductPreview = ({ id, heading, description, image, likes }) => {
     padding: "0.3em",
     borderRadius: "5px",
   };
-  const [currentLikes, setCurrentLikes] = React.useState(likes);
-  const str = localStorage.getItem("dummyProducts");
-  const parsedObj = JSON.parse(str);
 
-  function changeLikes() {
-    setCurrentLikes(currentLikes + 1);
-    parsedObj[id - 1].likes = currentLikes + 1;
+  const [currentLikes, setCurrentLikes] = React.useState(likes);
+  const [str,setStr] = React.useState(JSON.stringify(dummyProducts));
+
+  function changeLikes(e) {
+    setCurrentLikes(1+currentLikes);
+    const parsedObj = JSON.parse(str);
+    parsedObj[id - 1].likes = currentLikes+2;
+    console.log(parsedObj[id-1].likes)
     const jsonObj = JSON.stringify(parsedObj);
-    localStorage.setItem("dummyProducts", jsonObj);
-    const str1 = localStorage.getItem("dummyProducts");
-    const parsedObj2 = JSON.parse(str);
+    setStr(jsonObj);
+    localStorage.setItem("dummyProducts",str);
   }
 
   return (
