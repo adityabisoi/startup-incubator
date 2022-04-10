@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Headers = () => {
   return (
-    <div style={{ border: "1px solid black", backgroundColor: "lightblue" }}>
+    <div style={{backgroundColor: "lightblue" }}>
       <Grid>
         <Grid.Row>
           <Grid.Column width={2}>

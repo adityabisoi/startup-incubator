@@ -24,28 +24,28 @@ const ProductPreview = ({ id, heading, description, image, likes }) => {
   }
 
   return (
-    <Grid.Row style={{ border: "1px solid black", margin: "2rem 0" }}>
-      <Grid.Column width={2}>
-        <Image src={image} size="small" />
-      </Grid.Column>
-      <Grid.Column width={10} textAlign="left">
-        <Header as="h2">{heading}</Header>
-        <p>{description}</p>
-        <Link to={`/product_details/${id}`} class="link-1" style={linkStyle}>
+    <Grid.Row style={{margin: "1rem", maxWidth: "400px", backgroundColor: "white", boxShadow: "2px 4px 4px 2px grey"}}>
+      <Grid.Row style={{ margin: "20px"}}>
+        <Image src={image} size="large" />
+      </Grid.Row>
+      <Grid.Row width={1} textAlign="left" style={{margin: "30px", marginTop:"0px",marginBottom:"0px"}}>
+        <Header as="h1">{heading}</Header>
+        <p style={{fontSize: "16px"}}>{description}</p>
+      </Grid.Row>
+      <Grid.Row width={3} textAlign="right" verticalAlign="middle" style={{margin: "30px"}}>
+      <Link to={`/product_details/${id}`} class="link-1" style={{marginLeft:"10px", marginRight:"11rem"}}>
           Details
         </Link>
-      </Grid.Column>
-      <Grid.Column width={3} textAlign="right" verticalAlign="middle">
         <Button
           icon
           labelPosition="left"
-          style={{ height: "100px" }}
+          style={{ height: "40px"}}
           onClick={changeLikes}
         >
           <Icon name="arrow alternate circle up" />
           {currentLikes}
         </Button>
-      </Grid.Column>
+      </Grid.Row>
     </Grid.Row>
   );
 };

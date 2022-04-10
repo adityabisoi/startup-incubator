@@ -6,8 +6,8 @@ import {dummyProducts} from '../utils/constants';
 const Body = () => {
 
     return (
-        <div style={{ margin: '2rem', padding: '2rem', border: '1px solid black', height:'80%', minHeight:'750px' }}>
-            <Grid>
+        <div style={{ margin: '2rem', padding: '2rem', height:'80%', minHeight:'750px' }}>
+            <Grid style={{justifyContent:"center"}}>
                {dummyProducts.map(product => (
                    <ProductPreview
                     id={product.id}
