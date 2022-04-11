@@ -7,6 +7,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import PersonIcon from "@mui/icons-material/Person";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { Link } from "react-router-dom";
 
 function Register() {
   const [name, setName] = useState("");
@@ -100,6 +101,9 @@ function Register() {
         </div>
 
         <button type="submit">Register</button>
+        <Link to="/login" className="registerlink">
+          Already registerted?
+        </Link>
       </form>
 
       <div className="message_container">

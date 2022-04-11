@@ -21,20 +21,14 @@ const Headers = () => {
             textAlign="right"
           >
             <Link to="/new-product">
-              <span style={{ color: "black", margin: "0 10px"}}>
+              <span style={{ color: "black", margin: "0 10px" }}>
                 New product
               </span>
             </Link>
 
             <Link to="/login">
-              <Button color="yellow" basic>
+              <Button class="ui yellow button">
                 Login
-              </Button>
-            </Link>
-
-            <Link to="/signup">
-              <Button color="blue" basic>
-                SignUp
               </Button>
             </Link>
           </Grid.Column>
