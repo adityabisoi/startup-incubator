@@ -5,6 +5,7 @@ import Body from "./HomePage/Body";
 import Footer from "./HomePage/Footer";
 import Product from "./Components/Product/Product";
 import Login from "./Login/Login";
+import Contact from "./ContactPage/ContactPage";
 import Register from "./Register/Register";
 import CreateProduct from "./CreateProduct/CreateProduct";
 import ScrollButton from "./Components/ScrollButton/ScrollButton";
@@ -31,6 +32,7 @@ function App() {
             </Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/signup" element={<Register />}></Route>
+            <Route path="/contact" element={<Contact />}></Route>
             <Route path="/new-product" element={<CreateProduct />}></Route>
           </Routes>
 
