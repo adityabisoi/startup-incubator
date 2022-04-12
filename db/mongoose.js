@@ -1,10 +1,14 @@
-const mongoose=require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/startup-incubator',{})
+/* eslint-disable linebreak-style */
+// eslint-disable-next-line linebreak-style
+/* eslint-disable no-console */
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-const connectToDatabase=()=>{console.log("Connected")}
+const DB = `mongodb+srv://${process.env.username}:${process.env.PASSWORD}@cluster0.lgyhc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&ssl=true`;
+mongoose.connect(DB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 
-module.exports=connectToDatabase
-
-
-
-
+  .then(() => console.log('DATABASE CONNECTED'))
+  .catch((err) => console.log(err));

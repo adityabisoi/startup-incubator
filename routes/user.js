@@ -1,6 +1,7 @@
 /* eslint-disable linebreak-style */
 const express = require('express');
 const User = require('../models/User');
+require('dotenv').config();
 
 const router = new express.Router();
 
