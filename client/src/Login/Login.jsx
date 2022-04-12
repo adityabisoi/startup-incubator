@@ -4,6 +4,7 @@ import Loader from "../Components/Loader/Loader";
 import CloseIcon from "@mui/icons-material/Close";
 import MailIcon from "@mui/icons-material/Mail";
 import LockIcon from "@mui/icons-material/Lock";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -17,11 +18,9 @@ function Login() {
 
     if (!email) {
       setMessage("Email shouldn't be empty");
-    } 
-    else if (!password) {
+    } else if (!password) {
       setMessage("Password shouldn't be empty");
-    } 
-    else {
+    } else {
       // handle login with server and setMessage accordingly
       setMessage("Login successful");
     }
@@ -56,6 +55,9 @@ function Login() {
         </div>
 
         <button type="submit">Login</button>
+        <Link to="/signup" className="registerlink">
+          Create a new account?
+        </Link>
       </form>
 
       <div className="message_container">
