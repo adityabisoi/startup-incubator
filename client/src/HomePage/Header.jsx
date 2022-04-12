@@ -26,7 +26,7 @@ const Headers = () => {
               </span>
             </Link>
             <Link to="/contact">
-              <Button class="ui yellow button">Contact Us</Button>
+              <Button class="ui yellow button">Contact</Button>
             </Link>
             <Link to="/login">
               <Button class="ui yellow button">Login</Button>
