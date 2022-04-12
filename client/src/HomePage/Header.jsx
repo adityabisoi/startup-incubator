@@ -25,11 +25,11 @@ const Headers = () => {
                 New product
               </span>
             </Link>
-
+            <Link to="/contact">
+              <Button class="ui yellow button">Contact Us</Button>
+            </Link>
             <Link to="/login">
-              <Button class="ui yellow button">
-                Login
-              </Button>
+              <Button class="ui yellow button">Login</Button>
             </Link>
           </Grid.Column>
         </Grid.Row>
