@@ -24,7 +24,19 @@ function CreateProduct() {
     } else if (!imageUrl) {
       setMessage("Please enter image url of the product");
     } else {
-      // show message from server or redirect after creating the product
+      const dummyProducts = JSON.parse(localStorage.getItem("dummyProducts"));
+      console.log(dummyProducts);
+      const newProduct = {
+        comment:[],
+        id: (dummyProducts.length+1),
+        heading: title,
+        description: description,
+        likes: 0,
+        imagePath:imageUrl,
+      }
+      dummyProducts.push(newProduct);
+      const newData = JSON.stringify(dummyProducts);
+      localStorage.setItem("dummyProducts",newData);
       setMessage("Created New Product");
     }
 
