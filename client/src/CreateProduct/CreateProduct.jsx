@@ -25,18 +25,17 @@ function CreateProduct() {
       setMessage("Please enter image url of the product");
     } else {
       const dummyProducts = JSON.parse(localStorage.getItem("dummyProducts"));
-      console.log(dummyProducts);
       const newProduct = {
-        comment:[],
-        id: (dummyProducts.length+1),
+        comment: [],
+        id: dummyProducts.length + 1,
         heading: title,
         description: description,
         likes: 0,
-        imagePath:imageUrl,
-      }
+        imagePath: imageUrl,
+      };
       dummyProducts.push(newProduct);
       const newData = JSON.stringify(dummyProducts);
-      localStorage.setItem("dummyProducts",newData);
+      localStorage.setItem("dummyProducts", newData);
       setMessage("Created New Product");
     }
 
@@ -59,10 +58,11 @@ function CreateProduct() {
 
         <div className="input_element">
           <DescriptionIcon />
-          <textarea type="text" placeholder="Description" onChange=
-            {(e) => setDescription(e.target.value)}>
-            
-          </textarea>
+          <textarea
+            type="text"
+            placeholder="Description"
+            onChange={(e) => setDescription(e.target.value)}
+          ></textarea>
         </div>
 
         <div className="input_element">
