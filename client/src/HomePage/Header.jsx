@@ -15,7 +15,6 @@ const Headers = () => {
                         <a href='/login'><button className="btn bg-warning butn" type="submit" style={{marginRight:'10px'}}>Login</button></a>
                         <a href='/signUp'><button className="btn bg-info butn" type="submit">SignUp</button></a>
                     </div>
-
                 </div>
             </nav>
         </>
@@ -25,5 +24,6 @@ const Headers = () => {
 }
 
 export default Headers
+
 
 
