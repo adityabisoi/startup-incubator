@@ -10,8 +10,22 @@ const ProductPreview = ({ id, heading, description, image, likes }) => {
     borderRadius: "5px",
   };
 
+  const style = {
+    margin: "1rem",
+    maxWidth: "400px",
+    backgroundColor: "white",
+    boxShadow: "2px 4px 4px 2px grey",
+  };
+
+  const hoverStyle = {
+    margin: "1rem",
+    maxWidth: "400px",
+    backgroundColor: "lightblue",
+    boxShadow: "2px 4px 4px 2px grey",
+  };
   const [currentLikes, setCurrentLikes] = React.useState(likes);
   const [str, setStr] = React.useState(JSON.stringify(dummyProducts));
+  const [hover, setHover] = React.useState(false);
 
   function changeLikes(e) {
     setCurrentLikes(1 + currentLikes);
@@ -25,23 +39,25 @@ const ProductPreview = ({ id, heading, description, image, likes }) => {
 
   return (
     <Grid.Row
-      style={{
-        margin: "1rem",
-        maxWidth: "400px",
-        backgroundColor: "white",
-        boxShadow: "2px 4px 4px 2px grey",
-      }}
+      style={hover ? hoverStyle : style}
+      className="clickme"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
       <Grid.Row style={{ margin: "20px" }}>
-        <Image src={image} size="large" />
+        <Link to={`/product_details/${id}`}>
+          <Image src={image} size="large" />
+        </Link>
       </Grid.Row>
       <Grid.Row
         width={1}
         textAlign="left"
         style={{ margin: "30px", marginTop: "0px", marginBottom: "0px" }}
       >
-        <Header as="h1">{heading}</Header>
-        <p style={{ fontSize: "16px" }}>{description}</p>
+        <Link to={`/product_details/${id}`}>
+          <Header as="h1">{heading}</Header>
+          <p style={{ fontSize: "16px", color: "black" }}>{description}</p>
+        </Link>
       </Grid.Row>
       <Grid.Row
         width={3}
@@ -49,13 +65,6 @@ const ProductPreview = ({ id, heading, description, image, likes }) => {
         verticalAlign="middle"
         style={{ margin: "30px" }}
       >
-        <Link
-          to={`/product_details/${id}`}
-          class="link-1"
-          style={{ marginLeft: "10px", marginRight: "11rem" }}
-        >
-          Details
-        </Link>
         <Button
           icon
           labelPosition="left"
