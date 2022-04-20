@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import Loader from "../Components/Loader/Loader";
 import CloseIcon from "@mui/icons-material/Close";
 import MailIcon from "@mui/icons-material/Mail";
-import "./ForgotPassword.css"
+import "./ForgotPassword.css";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");

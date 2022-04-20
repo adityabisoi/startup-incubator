@@ -56,12 +56,8 @@ function Login() {
 
         <button type="submit">Login</button>
         <div className="links">
-        <Link to="/forgot" >
-          Forgot Password?
-        </Link>
-        <Link to="/signup" >
-          Create a new account?
-        </Link>
+          <Link to="/forgot">Forgot Password?</Link>
+          <Link to="/signup">Create a new account?</Link>
         </div>
       </form>
 
