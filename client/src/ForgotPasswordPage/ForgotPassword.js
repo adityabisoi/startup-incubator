@@ -1,14 +1,11 @@
 import React, { Fragment, useState } from "react";
-import "./Login.css";
 import Loader from "../Components/Loader/Loader";
 import CloseIcon from "@mui/icons-material/Close";
 import MailIcon from "@mui/icons-material/Mail";
-import LockIcon from "@mui/icons-material/Lock";
-import { Link } from "react-router-dom";
+import "./ForgotPassword.css"
 
-function Login() {
+function ForgotPassword() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -18,8 +15,6 @@ function Login() {
 
     if (!email) {
       setMessage("Email shouldn't be empty");
-    } else if (!password) {
-      setMessage("Password shouldn't be empty");
     } else {
       // handle login with server and setMessage accordingly
       setMessage("Login successful");
@@ -30,8 +25,8 @@ function Login() {
 
   return (
     <Fragment>
-      <form className="login_form" onSubmit={handleSubmit}>
-        <h1 className="login_heading">Login</h1>
+      <form className="forgotPassword_form" onSubmit={handleSubmit}>
+        <h1 className="forgotPassword_heading">Forgot Password</h1>
 
         <div className="input_element">
           <MailIcon />
@@ -44,25 +39,7 @@ function Login() {
           />
         </div>
 
-        <div className="input_element">
-          <LockIcon />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-        </div>
-
-        <button type="submit">Login</button>
-        <div className="links">
-        <Link to="/forgot" >
-          Forgot Password?
-        </Link>
-        <Link to="/signup" >
-          Create a new account?
-        </Link>
-        </div>
+        <button type="submit">Submit</button>
       </form>
 
       <div className="message_container">
@@ -79,4 +56,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ForgotPassword;
