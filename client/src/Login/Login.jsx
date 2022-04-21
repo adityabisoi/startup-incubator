@@ -7,27 +7,48 @@ import LockIcon from "@mui/icons-material/Lock";
 import { Link } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  //   const [email, setEmail] = useState("");
+  //  const [password, setPassword] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [credentials, setcredentials] = useState({ email: "", password: "" });
 
-  async function handleSubmit(e) {
+  const onChange = (e) => {
+    setcredentials(prevState => {
+      return {
+        ...prevState,
+        [e.target.name]: e.target.value
+      }
+    })
+  }
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    if (!email) {
+    if (!credentials.email) {
       setMessage("Email shouldn't be empty");
-    } else if (!password) {
+    } else if (!credentials.password) {
       setMessage("Password shouldn't be empty");
     } else {
-      // handle login with server and setMessage accordingly
-      setMessage("Login successful");
-    }
+      const response = await fetch('http://localhost:5000/loginUser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
 
+        },
+        body: JSON.stringify({ email: credentials.email, password: credentials.password })
+      });
+      const json = await response.json();
+      console.log(json)
+      if (json === false) {
+        setMessage("Invalid Credentials!!");
+      } else {
+        setMessage("Login Successfull!!");
+        //history('/')
+      }
+    }
     setLoading(false);
   }
-
   return (
     <Fragment>
       <form className="login_form" onSubmit={handleSubmit}>
@@ -37,8 +58,9 @@ function Login() {
           <MailIcon />
           <input
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            value={credentials.email}
+            onChange={onChange}
             placeholder="Email"
             autoComplete="on"
           />
@@ -48,8 +70,9 @@ function Login() {
           <LockIcon />
           <input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            value={credentials.password}
+            onChange={onChange}
             placeholder="Password"
           />
         </div>

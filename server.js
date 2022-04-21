@@ -3,13 +3,13 @@
 
 // eslint-disable-next-line import/extensions
 require('./db/mongoose.js');
-
+const cors = require('cors');
 const express = require('express');
 
 const app = express();
 const port = process.env.PORT || 5000;
 app.use(express.json());
-
+app.use(cors());
 // eslint-disable-next-line linebreak-style
 const userRoute = require('./routes/user');
 
