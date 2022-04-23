@@ -19,3 +19,9 @@ a {
   text-decoration: none;
   color: black;
 }
+
+.scrollbtn{
+  position:fixed;
+  bottom:4rem;
+  left:2rem;
+}

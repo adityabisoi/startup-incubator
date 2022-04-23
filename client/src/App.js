@@ -37,10 +37,9 @@ function App() {
             <Route path="/forgot" element={<ForgotPassword />}></Route>
             <Route path="/new-product" element={<CreateProduct />}></Route>
           </Routes>
-
-          {/* <p>{!data ? "Loading..." : data}</p> */}
-          {/* The above line is replaced by helloworld when backend is running */}
+          <div className="scrollbtn">
           <ScrollButton />
+          </div>
           <Footer />
         </div>
       </Router>
