@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 const express = require('express');
-const User = require('../models/User');
+const User = require('../model/User');
 require('dotenv').config();
 
 const router = new express.Router();
@@ -10,11 +10,10 @@ router.post('/registerUser', async (req, res) => {
   const user = new User(req.body);
   try {
     await user.save();
-    res.status(201).send({ user });
-    res.redirect('/loginUser');
+    res.status(201).send('true');
   // eslint-disable-next-line linebreak-style
   } catch (e) {
-    res.status(400).send('UserName Already Taken!!');
+    res.status(400).send('false');
   }
 });
 
@@ -23,12 +22,10 @@ router.post('/loginUser', async (req, res) => {
   try {
     const user = await User.findByCredentials(req.body.email, req.body.password);
     if (user) {
-      await res.send(user);
-    } else {
-      res.redirect('/registerUser');
-    }
+      await res.send('true');
+    } 
   } catch (e) {
-    res.status(400).send('Login Failed');
+    res.status(400).send('false');
   }
 });
 
