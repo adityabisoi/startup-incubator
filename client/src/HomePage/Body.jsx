@@ -4,6 +4,12 @@ import ProductPreview from "../Components/Product/ProductPreview";
 import { dummyProducts } from "../utils/constants";
 
 const Body = () => {
+  const [visible, setVisible] = React.useState(3);
+
+  function viewMore() {
+    setVisible(visible + 3);
+  }
+
   return (
     <div
       style={{
@@ -14,7 +20,7 @@ const Body = () => {
       }}
     >
       <Grid style={{ justifyContent: "center" }}>
-        {dummyProducts.map((product) => (
+        {dummyProducts.slice(0, visible).map((product) => (
           <ProductPreview
             id={product.id}
             heading={product.heading}
@@ -24,6 +30,19 @@ const Body = () => {
           />
         ))}
       </Grid>
+      {visible < dummyProducts.length && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "25px",
+          }}
+        >
+          <button onClick={viewMore} className="btn btn-danger">
+            View More
+          </button>
+        </div>
+      )}
     </div>
   );
 };
