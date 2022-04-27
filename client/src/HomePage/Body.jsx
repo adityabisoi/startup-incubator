@@ -4,6 +4,7 @@ import ProductPreview from "../Components/Product/ProductPreview";
 import { dummyProducts } from "../utils/constants";
 
 const Body = () => {
+  dummyProducts.sort((a,b) => (a.likes > b.likes) ? -1 : ((b.likes > a.likes) ? 1 : 0));
   return (
     <div
       style={{
