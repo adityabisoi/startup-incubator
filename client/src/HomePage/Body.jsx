@@ -4,12 +4,16 @@ import ProductPreview from "../Components/Product/ProductPreview";
 import { dummyProducts } from "../utils/constants";
 
 const Body = () => {
+<<<<<<< HEAD
   const [visible, setVisible] = React.useState(3);
 
   function viewMore() {
     setVisible(visible + 3);
   }
 
+=======
+  dummyProducts.sort((a,b) => (a.likes > b.likes) ? -1 : ((b.likes > a.likes) ? 1 : 0));
+>>>>>>> main
   return (
     <div
       style={{
