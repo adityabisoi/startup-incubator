@@ -10,6 +10,8 @@ const Headers = () =>{
     </>
   )
 };
+export default Headers;
+
 /*const Headers = () => {
   return (
     <div style={{ border: "1px solid black", backgroundColor: "lightblue" }}>
@@ -22,23 +24,11 @@ const Headers = () =>{
             />
           </Grid.Column>
 
-          <Grid.Column
-            style={{ marginRight: "2rem" }}
-            width={13}
-            verticalAlign="middle"
-            textAlign="right"
-          >
-            <Link to="/new-product">
-              <span style={{ color: "black", margin: "0 10px"}}>
-                New product
-              </span>
-            </Link>
 
-            <Link to="/login">
-              <Button color="yellow" basic>
-                Login
-              </Button>
-            </Link>
+    )
+}
+
+
 
             <Link to="/signup">
               <Button color="blue" basic>
@@ -52,4 +42,3 @@ const Headers = () =>{
   );
 };*/
 
-export default Headers;

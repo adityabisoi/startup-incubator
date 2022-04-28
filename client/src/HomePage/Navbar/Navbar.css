@@ -22,7 +22,7 @@
     border-image: linear-gradient(85deg,#195ee7,#f93f78) 0 0 3 0;
     border-style: solid;
     padding-bottom:10px;
-    line-height: 44px;
+    line-height: 50px;
     cursor: pointer;
 }
 .logo:hover{

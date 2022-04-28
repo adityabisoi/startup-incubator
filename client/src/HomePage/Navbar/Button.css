@@ -10,7 +10,7 @@
     height: 40px;
   }
 .blue:hover{
-  background: linear-gradient(85deg,#195ee7,#f93f78);
+  background: linear-gradient(120deg,#195ee7,#f93f78);
   color:white;
 }
 .white{
