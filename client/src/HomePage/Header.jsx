@@ -1,8 +1,16 @@
 import React from "react";
-import { Button, Grid, Image } from "semantic-ui-react";
-import { Link } from "react-router-dom";
-
-const Headers = () => {
+//import { Button, Grid, Image } from "semantic-ui-react";
+//import Fancy from "./Navbar/Fancy";
+import Navbar from "./Navbar/Navbar";
+import logo from '../assets/icon.png';
+const Headers = () =>{
+  return (
+    <>
+       <Navbar logo = {logo}/>
+    </>
+  )
+};
+/*const Headers = () => {
   return (
     <div style={{ border: "1px solid black", backgroundColor: "lightblue" }}>
       <Grid>
@@ -42,6 +50,6 @@ const Headers = () => {
       </Grid>
     </div>
   );
-};
+};*/
 
 export default Headers;

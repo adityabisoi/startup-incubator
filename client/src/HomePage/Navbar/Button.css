@@ -1,0 +1,44 @@
+.blue{
+    font: inherit;
+    border: 1px solid white;
+    background: white;
+    color: #1A62F2;
+    padding: 0rem 1.5rem;
+    cursor: pointer;
+    font-size: larger;
+    border-radius: 30px;
+    height: 40px;
+  }
+.blue:hover{
+  background: linear-gradient(85deg,#195ee7,#f93f78);
+  color:white;
+}
+.white{
+  font: inherit;
+  border: 1px solid white;
+  background: #1A62F2;
+  color: white;
+  padding: 0rem 0.5rem;
+  cursor: pointer;
+  font-size: larger;
+  border-radius: 30px;
+  height: 40px;
+}
+.white:hover{
+    color: white;
+    border-style: solid;
+    border-width: 1px;
+    background: linear-gradient(85deg,#195ee7,#f93f78);
+}
+.blue:focus {
+    outline: none;
+}
+.butt{
+    display: grid;
+    justify-content: start;
+    align-items: center;
+    margin-left:5px ;
+    margin-right:5px;
+    position: relative;
+    top: -5px;
+} 
