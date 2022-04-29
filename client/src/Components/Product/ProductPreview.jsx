@@ -31,7 +31,6 @@ const ProductPreview = ({ id, heading, description, image, likes }) => {
     setCurrentLikes(1 + currentLikes);
     const parsedObj = JSON.parse(str);
     parsedObj[id - 1].likes = currentLikes + 2;
-    console.log(parsedObj[id - 1].likes);
     const jsonObj = JSON.stringify(parsedObj);
     setStr(jsonObj);
     localStorage.setItem("dummyProducts", str);
