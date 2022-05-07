@@ -1,15 +1,16 @@
 /* eslint-disable linebreak-style */
 // eslint-disable-next-line linebreak-style
 /* eslint-disable no-console */
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
-const DB = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.lgyhc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&ssl=true`;
-mongoose.connect(DB, {
+const url = `mongodb+srv://${process.env.MONGODB_NON_ROOT_USERNAME}:${process.env.MONGODB_NON_ROOT_PASSWORD}@cluster0.lgyhc.mongodb.net/${process.env.MONGODB_DATABASE}?retryWrites=true&w=majority`;
+
+const options = {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+  useUnifiedTopology: true 
+};
 
-  .then(() => console.log('DATABASE CONNECTED'))
-  .catch((err) => console.log(err));
-
+mongoose.connect(url, options).then(() => {
+  console.log("Connected to database");
+});
