@@ -27,7 +27,7 @@ import Fancy from "./Fancy";
                 <div className='wrapper'>
                     <nav className={`main-nav ${startflag?"isActive":""}`}>
                             <div className='logo'>
-                                <img src = {props.logo} className = "logo" alt='id'></img>
+                                <img id = "mainLogo" src = {props.logo} className = "logo" alt='id'></img>
                             </div>
                             {/*rest buttons */}
                             <Link to="/new-product">

@@ -19,10 +19,10 @@
 }
 .Sol:hover, .Int:hover, .Res:hover, .Abt:hover{
     border-width: 4px;
-    border-image: linear-gradient(85deg,#195ee7,#f93f78) 0 0 3 0;
+    border-image: linear-gradient(85deg,#7AD7F0,#7AD7F0) 0 0 3 0;
     border-style: solid;
     padding-bottom:10px;
-    line-height: 44px;
+    line-height: 50px;
     cursor: pointer;
 }
 .logo:hover{
@@ -44,6 +44,9 @@
 }
 .bar{
     text-align: center;
+}
+#mainLogo{
+    background-color: white;
 }
 @media screen and (max-width: 1250px) {
     .main-nav{

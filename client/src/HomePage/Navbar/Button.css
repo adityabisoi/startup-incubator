@@ -10,7 +10,7 @@
     height: 40px;
   }
 .blue:hover{
-  background: linear-gradient(85deg,#195ee7,#f93f78);
+  background:#1A62F2;
   color:white;
 }
 .white{
@@ -25,10 +25,11 @@
   height: 40px;
 }
 .white:hover{
-    color: white;
+    color: #1A62F2;
     border-style: solid;
     border-width: 1px;
-    background: linear-gradient(85deg,#195ee7,#f93f78);
+    background:white;
+
 }
 .blue:focus {
     outline: none;

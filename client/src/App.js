@@ -5,9 +5,11 @@ import Body from "./HomePage/Body";
 import Footer from "./HomePage/Footer";
 import Product from "./Components/Product/Product";
 import Login from "./Login/Login";
+import Contact from "./ContactPage/ContactPage";
 import Register from "./Register/Register";
 import CreateProduct from "./CreateProduct/CreateProduct";
 import ScrollButton from "./Components/ScrollButton/ScrollButton";
+import ForgotPassword from "./ForgotPasswordPage/ForgotPassword";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -31,12 +33,13 @@ function App() {
             </Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/signup" element={<Register />}></Route>
+            <Route path="/contact" element={<Contact />}></Route>
+            <Route path="/forgot" element={<ForgotPassword />}></Route>
             <Route path="/new-product" element={<CreateProduct />}></Route>
           </Routes>
-
-          {/* <p>{!data ? "Loading..." : data}</p> */}
-          {/* The above line is replaced by helloworld when backend is running */}
+          <div className="scrollbtn">
           <ScrollButton />
+          </div>
           <Footer />
         </div>
       </Router>

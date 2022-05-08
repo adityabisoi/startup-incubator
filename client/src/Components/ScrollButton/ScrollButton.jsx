@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BiArrowFromBottom } from "react-icons/bi";
+import { BiUpArrowAlt } from "react-icons/bi";
 import "./ScrollButton.css";
 
 const ScrollButton = () => {
@@ -31,11 +31,11 @@ const ScrollButton = () => {
 
     return (
         <div className="scrollButtonContainer">
-            <button type="scrollButton" onClick={scrollToTop}
+            <button className="scrollButton" onClick={scrollToTop}
                 style={{
                     display: showButton ? 'inline' : 'none',
                 }}>
-                <BiArrowFromBottom />
+                <BiUpArrowAlt />
             </button>
         </div >
     );
