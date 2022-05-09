@@ -10,8 +10,9 @@
     height: 40px;
   }
 .blue:hover{
-  background:#1A62F2;
-  color:white;
+  color:#7AD7F0;
+  border: 1px solid #7AD7F0;
+
 }
 .white{
   font: inherit;
@@ -25,9 +26,8 @@
   height: 40px;
 }
 .white:hover{
-    color: #1A62F2;
-    border-style: solid;
-    border-width: 1px;
+    color: #7AD7F0;
+    border: 1px solid #7AD7F0;
     background:white;
 
 }
