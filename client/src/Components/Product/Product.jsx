@@ -14,7 +14,7 @@ const Product = () => {
         background: '#FFFFFF',
         boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.3)',
         borderRadius: '4px',
-        overflow: 'hidden'
+        overflow: 'hidden',
     };
     const addStyle = {
         height: "100px",

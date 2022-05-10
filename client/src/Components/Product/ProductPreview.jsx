@@ -20,7 +20,7 @@ const ProductPreview = ({ id, heading, description, image, likes }) => {
   const hoverStyle = {
     margin: "1rem",
     maxWidth: "400px",
-    backgroundColor: "lightblue",
+    background: "#7AD7F0",
     boxShadow: "2px 4px 4px 2px grey",
   };
   const [currentLikes, setCurrentLikes] = React.useState(likes);

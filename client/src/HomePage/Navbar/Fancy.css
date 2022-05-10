@@ -1,0 +1,29 @@
+
+*{
+    margin: 0;
+}
+.fancyBg{
+    width: 100%;
+    height:40px;
+    background: #7AD7F0;
+    text-align: center;
+    position: fixed;
+    position: fixed;
+    transition:transform 0.3s;
+    z-index: 10;
+}
+#fancyText{
+    color: black;
+    margin:0.6%;
+    transition: font-size 2s;
+}
+#fancyText:hover{
+    color: white;
+
+}
+@media screen and (max-width: 600px) {
+    #fancyText{
+        transition: font-size 3s;
+    }
+}
+

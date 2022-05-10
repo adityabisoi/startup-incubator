@@ -1,30 +1,44 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './header.css'
+import React from "react";
+//import { Button, Grid, Image } from "semantic-ui-react";
+//import Fancy from "./Navbar/Fancy";
+import Navbar from "./Navbar/Navbar";
+import logo from '../assets/icon.png';
+const Headers = () =>{
+  return (
+    <>
+       <Navbar logo = {logo}/>
+    </>
+  )
+};
+export default Headers;
 
-const Headers = () => {
-    return (
-        <>
-            <nav className="navbar navbar-light bg-light">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="">
-                        <img src="Images/icon.jpg" alt="" width="150" height="150" className="d-inline-block align-text-top" />
-                    </a>
-                    <div>
-                        <a href='/'><button className="btn bg-danger butn" type="submit" style={{marginRight:'10px',color:"white"}}>Home</button></a>
-                        <a href='/new-product'><button className="btn bg-success butn" type="submit" style={{marginRight:'10px',color:"white"}}>New Product</button></a>
-                        <a href='/login'><button className="btn bg-warning butn" type="submit" style={{marginRight:'10px',color:"white"}}>Login</button></a>
-                        <a href='/signUp'><button className="btn bg-info butn" type="submit" style={{marginRight:'10px',color:"white"}}>SignUp</button></a>
-                    </div>
-                </div>
-            </nav>
-        </>
+/*const Headers = () => {
+  return (
+    <div style={{ border: "1px solid black", backgroundColor: "lightblue" }}>
+      <Grid>
+        <Grid.Row>
+          <Grid.Column width={2}>
+            <Image
+              src="Images/icon.jpg"
+              style={{ width: "120px", margin: "0 2rem" }}
+            />
+          </Grid.Column>
 
 
     )
 }
 
-export default Headers
 
 
+            <Link to="/signup">
+              <Button color="blue" basic>
+                SignUp
+              </Button>
+            </Link>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </div>
+  );
+};*/
 
