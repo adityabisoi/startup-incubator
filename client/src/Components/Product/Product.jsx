@@ -1,11 +1,16 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import {dummyProducts as data} from '../../utils/constants';
 import Description from './Description';
 import CommentSection from './CommentSection';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Product = () => {
+  //////
+    let history=useNavigate()
+    if(localStorage.getItem('token')===null) {
+      history('/login')
+    }
     const style = {
         minHeight: '750px',
         margin: '0 auto',

@@ -1,6 +1,8 @@
 /* eslint-disable linebreak-style */
 const express = require('express');
 const User = require('../model/User');
+const jwt=require('jsonwebtoken');
+const verifyToken=require('../middleware/auth')
 require('dotenv').config();
 
 const router = new express.Router();
@@ -10,7 +12,8 @@ router.post('/registerUser', async (req, res) => {
   const user = new User(req.body);
   try {
     await user.save();
-    res.status(201).send('true');
+    const token=jwt.sign({_id:user._id},'hello')
+    res.status(201).send({token});
   // eslint-disable-next-line linebreak-style
   } catch (e) {
     res.status(400).send('false');
@@ -21,8 +24,11 @@ router.post('/registerUser', async (req, res) => {
 router.post('/loginUser', async (req, res) => {
   try {
     const user = await User.findByCredentials(req.body.email, req.body.password);
+    const token=jwt.sign({_id:user._id},'hello')
+    console.log(token)
     if (user) {
-      await res.send('true');
+      //await res.send('true');
+      res.status(201).send({token});
     } 
   } catch (e) {
     res.status(400).send('false');

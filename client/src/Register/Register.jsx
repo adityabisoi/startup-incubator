@@ -48,6 +48,7 @@ function Register() {
       if (json === false) {
         setMessage("Invalid Credentials!!");
       } else {
+        localStorage.setItem('token', json.token);
         setMessage("Registration Successfull!!");
         //history('/')
       }

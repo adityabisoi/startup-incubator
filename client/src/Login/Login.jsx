@@ -43,6 +43,8 @@ function Login() {
       if (json === false) {
         setMessage("Invalid Credentials!!");
       } else {
+        localStorage.setItem('token', json.token)
+        console.log(json.token)
         setMessage("Login Successfull!!");
         //history('/')
       }
