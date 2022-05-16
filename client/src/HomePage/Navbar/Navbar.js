@@ -1,13 +1,17 @@
 import React ,{useEffect,useState} from 'react';
 import './Navbar.css';
 import Button from "./Button";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Fancy from "./Fancy";
 
  const Navbar = (props)=>{
         const[startflag,setflag] = useState(false);
-
+        let history=useNavigate();
         //To hide navbar when scroll
+        const handleclick=()=>{
+            localStorage.removeItem('token');
+            history('/login');
+        }
         useEffect(()=>{
             let x= window.scrollY;
             window.addEventListener('scroll',( )=>{
@@ -44,13 +48,15 @@ import Fancy from "./Fancy";
                             <div className='Abt'>
                                 <div className='bar'> About us</div>
                             </div>
-
+                            
                             <Link to="/signup">
                                 <Button color={'blue'} text={'SignUp'}/>
                             </Link>
                             <Link to="/login">
                                 <Button color={'white'} text={"Log In"}/>
                             </Link>
+                            <div className='abc'><button className='btn btn-primary' onClick={handleclick}>Logout</button></div>}
+                            
                     </nav>
                 </div>
             </>

@@ -36,6 +36,7 @@ function App() {
             <Route path="/contact" element={<Contact />}></Route>
             <Route path="/forgot" element={<ForgotPassword />}></Route>
             <Route path="/new-product" element={<CreateProduct />}></Route>
+            {/* <Route path="/logout" element={<Login />}></Route> */}
           </Routes>
           <div className="scrollbtn">
           <ScrollButton />

@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { useNavigate } from 'react-router-dom'
 import "./CreateProduct.css";
 import Loader from "../Components/Loader/Loader";
 import TitleIcon from "@mui/icons-material/Title";
@@ -12,8 +13,8 @@ function CreateProduct() {
   const [imageUrl, setImageUrl] = useState("");
   const [isLoading, setisLoading] = useState(false);
   const [message, setMessage] = useState("");
-
-  function handleSubmit(e) {
+  let history=useNavigate();
+  const handleSubmit = async (e)=>{
     e.preventDefault();
     setisLoading(true);
 
@@ -24,19 +25,36 @@ function CreateProduct() {
     } else if (!imageUrl) {
       setMessage("Please enter image url of the product");
     } else {
-      const dummyProducts = JSON.parse(localStorage.getItem("dummyProducts"));
-      const newProduct = {
-        comment: [],
-        id: dummyProducts.length + 1,
-        heading: title,
-        description: description,
-        likes: 0,
-        imagePath: imageUrl,
-      };
-      dummyProducts.push(newProduct);
-      const newData = JSON.stringify(dummyProducts);
-      localStorage.setItem("dummyProducts", newData);
-      setMessage("Created New Product");
+      const response=await fetch('http://localhost:5000/createProject', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': localStorage.getItem('token')
+        },
+        body: JSON.stringify({title:title, description:description, imageUrl:imageUrl})
+      });
+      // eslint-disable-next-line no-unused-vars
+      const json=await response.json();
+      console.log(json);
+      if(json===false) {
+          history('/login');
+      }
+      else {
+        history('/')
+      }
+      // const dummyProducts = JSON.parse(localStorage.getItem("dummyProducts"));
+      // const newProduct = {
+      //   comment: [],
+      //   id: dummyProducts.length + 1,
+      //   heading: title,
+      //   description: description,
+      //   likes: 0,
+      //   imagePath: imageUrl,
+      // };
+      // dummyProducts.push(newProduct);
+      // const newData = JSON.stringify(dummyProducts);
+      // localStorage.setItem("dummyProducts", newData);
+      // setMessage("Created New Product");
     }
 
     setisLoading(false);

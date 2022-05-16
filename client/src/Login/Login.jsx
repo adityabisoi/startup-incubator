@@ -1,14 +1,16 @@
 import React, { Fragment, useState } from "react";
 import "./Login.css";
+import { Link, useNavigate } from "react-router-dom"
 import Loader from "../Components/Loader/Loader";
 import CloseIcon from "@mui/icons-material/Close";
 import MailIcon from "@mui/icons-material/Mail";
 import LockIcon from "@mui/icons-material/Lock";
-import { Link } from "react-router-dom";
+
 
 function Login() {
   //   const [email, setEmail] = useState("");
   //  const [password, setPassword] = useState("");
+  let history=useNavigate('/')
   const [isLoading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [credentials, setcredentials] = useState({ email: "", password: "" });
@@ -44,9 +46,9 @@ function Login() {
         setMessage("Invalid Credentials!!");
       } else {
         localStorage.setItem('token', json.token)
-        console.log(json.token)
+        //console.log(json)
         setMessage("Login Successfull!!");
-        //history('/')
+        history('/new-product')
       }
     }
     setLoading(false);
