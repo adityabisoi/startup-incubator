@@ -7,9 +7,10 @@ import LockIcon from "@mui/icons-material/Lock";
 import PersonIcon from "@mui/icons-material/Person";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 function Register() {
+  let history=useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,8 +49,9 @@ function Register() {
       if (json === false) {
         setMessage("Invalid Credentials!!");
       } else {
+        localStorage.setItem('token', json.token);
         setMessage("Registration Successfull!!");
-        //history('/')
+        history('/new-product')
       }
     }
     

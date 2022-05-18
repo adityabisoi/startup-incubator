@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import {dummyProducts as data} from '../../utils/constants';
 import Description from './Description';
 import CommentSection from './CommentSection';

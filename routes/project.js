@@ -1,12 +1,14 @@
 /* eslint-disable linebreak-style */
 const express = require('express');
 const Project = require('../model/Project');
+const jwt=require('jsonwebtoken');
+const verifyToken=require('../middleware/auth')
 require('dotenv').config();
 
 const router = new express.Router();
 
 //create project
-router.post('/createProject',async (req,res)=>{
+router.post('/createProject',verifyToken, async (req,res)=>{
     const project=new Project(req.body);
     try {
         await project.save();
