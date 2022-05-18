@@ -48,14 +48,15 @@ import Fancy from "./Fancy";
                             <div className='Abt'>
                                 <div className='bar'> About us</div>
                             </div>
-                            
+                            {!localStorage.getItem('token')?<>
                             <Link to="/signup">
                                 <Button color={'blue'} text={'SignUp'}/>
                             </Link>
                             <Link to="/login">
                                 <Button color={'white'} text={"Log In"}/>
                             </Link>
-                            <div className='abc'><button className='btn btn-primary' onClick={handleclick}>Logout</button></div>}
+                            </>
+                            :<div className='abc'><button className='btn btn-primary' onClick={handleclick}>Logout</button></div>}
                             
                     </nav>
                 </div>
