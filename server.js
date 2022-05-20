@@ -5,6 +5,7 @@
 require('./db/mongoose.js');
 const cors = require('cors');
 const express = require('express');
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -16,7 +17,7 @@ const projectRoute= require('./routes/project');
 app.use(userRoute);
 app.use(projectRoute);
 // eslint-disable-next-line no-console
-app.listen(port, () => console.log(`[+] Server is running on http://localhost:${port}`)); //
+app.listen(port, () => console.log(`[+] Server is running on http://localhost:${port} `+process.env.GMAIL+" " +process.env.PASSWORD)); //
 
 // eslint-disable-next-line linebreak-style
 

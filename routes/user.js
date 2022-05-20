@@ -2,8 +2,10 @@
 const express = require('express');
 const User = require('../model/User');
 const jwt=require('jsonwebtoken');
+const crypto = require('crypto');
 const verifyToken=require('../middleware/auth')
 require('dotenv').config();
+const send = require('../mailer/mailer')
 
 const router = new express.Router();
 
@@ -37,4 +39,30 @@ router.post('/loginUser', async (req, res) => {
     res.status(400).send('false');
   }
 });
+
+router.post('/reset-password',(req,res)=>{
+  crypto.randomBytes(32,(error,buffer)=>{
+    if(error){
+      console.log(error);
+    }
+    const token = buffer.toString("hex");
+    const msgHTML = `<h2>We are from Startup Incubator</h2>
+                    <p>You requested to reset password</p>
+                    <h5><a href="http://localhost:5000/reset-password/${token}">Click here </a>to reset the password</h5>`
+    const mailOptions = {
+      from: 'no-reply@gmail.com',
+      to: req.body.email,
+      subject: 'Reset password',
+      html: msgHTML
+    };
+
+    send(mailOptions);
+
+    res.json({msg:"check your email"});
+  })
+});
+
+router.post('/hello',(req,res)=>{
+  res.status(201).json({message:"hello"});
+})
 module.exports = router;
