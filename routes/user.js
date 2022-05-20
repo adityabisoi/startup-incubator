@@ -62,7 +62,4 @@ router.post('/reset-password',(req,res)=>{
   })
 });
 
-router.post('/hello',(req,res)=>{
-  res.status(201).json({message:"hello"});
-})
 module.exports = router;
