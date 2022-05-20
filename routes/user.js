@@ -38,4 +38,12 @@ router.post('/loginUser', async (req, res) => {
   }
 });
 
+//reset-password
+router.get('/forgot',async(req,res)=>{
+  console.log("hello");
+} )
+router.post('/forgot',async(req, res)=>{
+  const key =req.body.key;
+  res.status(201).send({key});
+});
 module.exports = router;
