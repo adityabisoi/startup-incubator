@@ -33,7 +33,11 @@ import Fancy from "./Fancy";
                             <div className='logo'>
                                 <img id = "mainLogo" src = {props.logo} className = "logo" alt='id'></img>
                             </div>
-                            {/*rest buttons */}
+                            <Link to="/">
+                                <div className='Sol'>
+                                    <div className='bar'>Home</div>
+                                </div>  
+                            </Link>
                             <Link to="/new-product">
                                 <div className='Sol'>
                                     <div className='bar'>New Product</div>

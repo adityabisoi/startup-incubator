@@ -3,7 +3,7 @@
     background-color: #1A62F2;
     height: 9rem;
     display: grid;
-    grid-template-columns: 5rem 6fr 1.5fr 1.5fr 1.5fr 1.5fr 1fr 1.5fr 3rem;
+    grid-template-columns: 1rem 6fr 1.5fr 1.5fr 1.5fr 1.5fr 1fr 1.5fr 6rem;
     position: fixed;
     transition:transform 0.2s;
     z-index: 8;
