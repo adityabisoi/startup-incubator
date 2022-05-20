@@ -10,7 +10,7 @@ import LockIcon from "@mui/icons-material/Lock";
 function Login() {
   //   const [email, setEmail] = useState("");
   //  const [password, setPassword] = useState("");
-  let history=useNavigate('/')
+  let history = useNavigate('/');
   const [isLoading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [credentials, setcredentials] = useState({ email: "", password: "" });
@@ -48,7 +48,7 @@ function Login() {
         localStorage.setItem('token', json.token)
         //console.log(json)
         setMessage("Login Successfull!!");
-        history('/new-product')
+        history('/')
       }
     }
     setLoading(false);
