@@ -5,21 +5,27 @@ require('dotenv').config();
 
 //The Frontend-form has title,description,imageUrl fields 
 const projectSchema = new mongoose.Schema({
-    title: {
-      type: String,
-      required: true,
-      trim: true
-    },
-    description: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    imageUrl: {
-        type: String,
-        trim: true
-    }
-  });
-  
-  const Project = mongoose.model('Project', projectSchema);
-  module.exports = Project;
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  title: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  description: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  imageUrl: {
+    type: String,
+    trim: true
+  }
+} , {
+  timestamps: true
+});
+
+const Project = mongoose.model('Project', projectSchema);
+module.exports = Project;
