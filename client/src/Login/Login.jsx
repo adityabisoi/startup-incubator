@@ -5,15 +5,18 @@ import Loader from "../Components/Loader/Loader";
 import CloseIcon from "@mui/icons-material/Close";
 import MailIcon from "@mui/icons-material/Mail";
 import LockIcon from "@mui/icons-material/Lock";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 
 function Login() {
   //   const [email, setEmail] = useState("");
   //  const [password, setPassword] = useState("");
-  let history=useNavigate('/')
+  let history = useNavigate('/');
   const [isLoading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [credentials, setcredentials] = useState({ email: "", password: "" });
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const onChange = (e) => {
     setcredentials(prevState => {
@@ -48,7 +51,7 @@ function Login() {
         localStorage.setItem('token', json.token)
         //console.log(json)
         setMessage("Login Successfull!!");
-        history('/new-product')
+        history('/')
       }
     }
     setLoading(false);
@@ -73,12 +76,15 @@ function Login() {
         <div className="input_element">
           <LockIcon />
           <input
-            type="password"
+            type={isPasswordVisible ? "text" : "password"}
             name="password"
             value={credentials.password}
             onChange={onChange}
             placeholder="Password"
           />
+          <div onClick={() => setIsPasswordVisible(!isPasswordVisible)}>
+          {isPasswordVisible ? <VisibilityIcon /> : <VisibilityOffIcon />}
+        </div>
         </div>
 
         <button type="submit">Login</button>
