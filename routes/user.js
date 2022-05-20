@@ -37,5 +37,4 @@ router.post('/loginUser', async (req, res) => {
     res.status(400).send('false');
   }
 });
-
 module.exports = router;

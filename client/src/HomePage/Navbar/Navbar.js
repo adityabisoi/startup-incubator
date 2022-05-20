@@ -34,6 +34,11 @@ const Navbar = (props) => {
             <img id="mainLogo" src={props.logo} className="logo" alt="id"></img>
           </div>
           {/*rest buttons */}
+          <Link to="/">
+              <div className="Sol">
+                <div className="bar">Home</div>
+              </div>
+            </Link>
           {localStorage.getItem("token") && (
             <Link to="/new-product">
               <div className="Sol">
