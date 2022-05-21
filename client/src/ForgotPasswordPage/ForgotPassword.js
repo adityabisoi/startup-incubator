@@ -16,8 +16,21 @@ function ForgotPassword() {
     if (!email) {
       setMessage("Email shouldn't be empty");
     } else {
-      // handle login with server and setMessage accordingly
-      setMessage("Login successful");
+      fetch("/reset-password",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: email
+        })
+      }).then(res=>res.json())
+      .then(data=>{
+        console.log(data);
+        setMessage("Please check your email");
+      }).catch(e=>{
+        setMessage(e.message);
+      })
     }
 
     setLoading(false);
