@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+.heading {
+	color: #ff8d29;
+	font-weight: bold;
+	padding-top: 30px;
+	padding-left: 50px;
+}
+
+.explanation {
+	padding: 30px 30px 10px 50px;
+	font-family: 'PT Serif', serif;
+}
+
+.dream {
+	color: #ff8d29;
+	font-weight: bold;
+}
