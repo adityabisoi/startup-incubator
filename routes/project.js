@@ -7,6 +7,15 @@ require('dotenv').config();
 
 const router = new express.Router();
 
+router.get('/getProject',verifyToken,async (req,res)=>{
+  try{
+    const products=await Project.find({user:req.user._id})
+    res.send(products)
+  }catch(e){
+    res.status(400).send("something went wrong")
+  }
+})
+
 //create project
 router.post('/createProject',verifyToken, async (req,res)=>{
 
