@@ -43,11 +43,8 @@ export default function Aboutus() {
 							and helps them reach the world! Get to know what
 							people think about your product by getting an early
 							feedback from them ! A platform where anyone can be
-							a part of the startup ecosystem. Just post your
-							startup idea or products pre release and get early
-							feedback from the people who are interested in your
-							idea. . You are just one tap away from being a part
-							of something great ! Enhance your startup with us.
+							a part of the startup ecosystem. We are here to help
+							you build your startup and make it a success.
 						</Typography>
 					</Item>
 					<Item>
@@ -57,7 +54,7 @@ export default function Aboutus() {
 							gutterBottom
 						>
 							Just post your startup idea or products pre release
-							and get early feedback from the people who are
+							and get an early feedback from the people who are
 							interested in your idea. . You can not only post
 							ideas but also uplift other startups by giving your
 							feedback ! Every feedback is valued ! You are just
