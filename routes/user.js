@@ -74,4 +74,18 @@ router.post('/reset-password',(req,res)=>{
   })
 });
 
+router.post('/change-password',async (req, res)=>{
+  const token = req.body.token;
+  const user = await User.findOne({resetToken:token});
+  if(!user)
+  {
+    throw new Error('Please try again');
+  }
+  user.password = req.body.password;
+  await user.save();
+  res.send({password:user.password,body:req.body})
+
+
+})
+
 module.exports = router;

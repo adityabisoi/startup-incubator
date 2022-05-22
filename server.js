@@ -17,7 +17,7 @@ const projectRoute= require('./routes/project');
 app.use(userRoute);
 app.use(projectRoute);
 // eslint-disable-next-line no-console
-app.listen(port, () => console.log(`[+] Server is running on http://localhost:${port} `+process.env.GMAIL+" " +process.env.PASSWORD)); //
+app.listen(port, () => console.log(`[+] Server is running on http://localhost:${port} `)); //
 
 // eslint-disable-next-line linebreak-style
 
