@@ -5,6 +5,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import {useParams } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import "./ResetPassword.css";
 
 function ResetPassword() {
@@ -15,6 +16,7 @@ function ResetPassword() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =useState(false);
   let params = useParams();
+  let history = useNavigate('/login');
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -28,6 +30,24 @@ function ResetPassword() {
     } else if (password !== confirmpassword) {
       setMessage("Password and Confirm password do not match");
     } else {
+      const token = params.token;
+      fetch('/change-password', {
+        method: 'POST',
+        headers:{
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          token:token,
+          password:password
+        })
+      }).then(res=>res.json())
+      .then(data=>{
+        console.log(data);
+        setMessage("Password Changed Successfully");
+        history('/login')
+      }).catch(e=>{
+        setMessage(e.message);
+      })
       //code here
     }
     
