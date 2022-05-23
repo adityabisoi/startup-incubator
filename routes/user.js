@@ -48,13 +48,25 @@ router.post('/reset-password',(req,res)=>{
     const token = buffer.toString("hex");
     const msgHTML = `<h2>We are from Startup Incubator</h2>
                     <p>You requested to reset password</p>
-                    <h5><a href="http://localhost:5000/reset-password/${token}">Click here </a>to reset the password</h5>`
+                    <h5><a href="http://localhost:3000/reset-password/${token}">Click here </a>to reset the password</h5>`
     const mailOptions = {
       from: 'no-reply@gmail.com',
       to: req.body.email,
       subject: 'Reset password',
       html: msgHTML
     };
+    User.findOne({email:req.body.email})
+    .then(user=>{
+      if(user)
+      {
+        user.resetToken = token;
+        user.save().then(()=>{
+          console.log('resetToken saved');
+        })
+      }
+    }).catch(()=>{
+      console.log('error occured');
+    })
 
     send(mailOptions);
 
