@@ -75,3 +75,4 @@ if (!localStorage.getItem("dummyProducts")) {
 
 const str = localStorage.getItem("dummyProducts");
 export const dummyProducts = JSON.parse(str);
+

@@ -6,6 +6,7 @@ import TitleIcon from "@mui/icons-material/Title";
 import ImageIcon from "@mui/icons-material/Image";
 import DescriptionIcon from "@mui/icons-material/Description";
 import CloseIcon from "@mui/icons-material/Close";
+import ProductItem from "./ProductItem";
 
 function CreateProduct() {
   const [title, setTitle] = useState("");
@@ -13,8 +14,29 @@ function CreateProduct() {
   const [imageUrl, setImageUrl] = useState("");
   const [isLoading, setisLoading] = useState(false);
   const [message, setMessage] = useState("");
-  let history=useNavigate();
-  const handleSubmit = async (e)=>{
+  let history = useNavigate();
+
+
+
+  const initialProject = []
+  const [project, setProject] = useState(initialProject)
+
+  const getProjects = async () => {
+    const response = await fetch('http://localhost:5000/getProject', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': localStorage.getItem('token')
+      }
+    });
+    const json = await response.json();
+    console.log(json)
+    setProject(json)
+  }
+  
+  // const [note, setNote] = useState({user:"", title: "", description: "", imageUrl: "" })
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setisLoading(true);
 
@@ -25,22 +47,22 @@ function CreateProduct() {
     } else if (!imageUrl) {
       setMessage("Please enter image url of the product");
     } else {
-      const response=await fetch('http://localhost:5000/createProject', {
+      const response = await fetch('http://localhost:5000/createProject', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'auth-token': localStorage.getItem('token')
         },
-        body: JSON.stringify({title:title, description:description, imageUrl:imageUrl})
+        body: JSON.stringify({ title: title, description: description, imageUrl: imageUrl })
       });
       // eslint-disable-next-line no-unused-vars
-      const json=await response.json();
+      const json = await response.json();
       console.log(json);
-      if(json===false) {
-          history('/login');
+      if (json === false) {
+        history('/login');
       }
       else {
-        history('/')
+        getProjects();
       }
       // const dummyProducts = JSON.parse(localStorage.getItem("dummyProducts"));
       // const newProduct = {
@@ -61,51 +83,58 @@ function CreateProduct() {
   }
 
   return (
-    <Fragment>
-      <form className="create_product_form" onSubmit={handleSubmit}>
-        <h1>New Product</h1>
-
-        <div className="input_element">
-          <TitleIcon />
-          <input
-            type="text"
-            placeholder="Title"
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
-
-        <div className="input_element">
-          <DescriptionIcon />
-          <textarea
-            type="text"
-            placeholder="Description"
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-        </div>
-
-        <div className="input_element">
-          <ImageIcon />
-          <input
-            type="text"
-            placeholder="Image URL"
-            onChange={(e) => setImageUrl(e.target.value)}
-          />
-        </div>
-
-        <button type="submit">Submit</button>
-      </form>
-
-      <div className="message_container">
-        {isLoading && <Loader />}
-
-        {message && (
-          <div className="message">
-            {message}
-            <CloseIcon className="close" onClick={() => setMessage("")} />
+    <>
+      <Fragment>
+        <form className="create_product_form" onSubmit={handleSubmit}>
+          
+          <h1>Enter Product Details</h1>
+          <div className="input_element">
+            <TitleIcon />
+            <input
+              type="text"
+              placeholder="Title"
+              onChange={(e) => setTitle(e.target.value)}
+            />
           </div>
-        )}
+
+          <div className="input_element">
+            <DescriptionIcon />
+            <textarea
+              type="text"
+              placeholder="Description"
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
+          </div>
+
+          <div className="input_element">
+            <ImageIcon />
+            <input
+              type="text"
+              placeholder="Image URL"
+              onChange={(e) => setImageUrl(e.target.value)}
+            />
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+
+        <div className="message_container">
+          {isLoading && <Loader />}
+
+          {message && (
+            <div className="message">
+              {message}
+              <CloseIcon className="close" onClick={() => setMessage("")} />
+            </div>
+          )}
+        </div>
+      </Fragment>
+      <div className="row my-3">
+        {project.map((note) => {
+          return (<ProductItem note={note} />)
+        })}
       </div>
-    </Fragment>
+    </>
   );
 }
 
