@@ -51,7 +51,7 @@ function Register() {
       } else {
         localStorage.setItem('token', json.token);
         setMessage("Registration Successfull!!");
-        history('/new-product')
+        history('/');
       }
     }
     
