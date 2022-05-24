@@ -41,6 +41,9 @@ const userSchema = new mongoose.Schema({
   resetToken: {
     type: String,
   },
+  expireToken: {
+    type : Date,
+  }
 });
 
 // eslint-disable-next-line func-names
