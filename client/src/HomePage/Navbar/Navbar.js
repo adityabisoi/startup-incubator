@@ -74,13 +74,8 @@ const Navbar = (props) => {
 							</Link>
 						</>
 					) : (
-						<div className='abc'>
-							<button
-								className='btn btn-primary'
-								onClick={handleclick}
-							>
-								Logout
-							</button>
+						<div className='abc' onClick={handleclick}>
+							<Button color={'blue'} text={'Logout'}/>
 						</div>
 					)}
 				</nav>
