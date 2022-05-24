@@ -74,6 +74,12 @@ const Navbar = (props) => {
 							</Link>
 						</>
 					) : (
+						<>
+						<Link to='/MyProducts'>
+								<div className='Sol'>
+									<div className='bar'>My Products</div>
+								</div>
+							</Link>
 						<div className='abc'>
 							<button
 								className='btn btn-primary'
@@ -82,6 +88,8 @@ const Navbar = (props) => {
 								Logout
 							</button>
 						</div>
+						
+						</>
 					)}
 				</nav>
 			</div>

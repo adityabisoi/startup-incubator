@@ -13,6 +13,7 @@ import Headers from "./HomePage/Header";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
 import ResetPassword from "./ForgotPasswordPage/ResetPassword";
+import MyProducts from "./CreateProduct/MyProducts";
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -48,6 +49,7 @@ function App() {
             ></Route>
             <Route path="/new-product" element={<CreateProduct />}></Route>
             <Route path="/aboutus" element={<Aboutus />}></Route>
+            <Route path="/MyProducts" element={<MyProducts />}></Route>
             {/* <Route path="/logout" element={<Login />}></Route> */}
           </Routes>
           <div className="scrollbtn">
