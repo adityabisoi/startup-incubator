@@ -21,6 +21,25 @@ function CreateProduct() {
   const initialProject = []
   const [project, setProject] = useState(initialProject)
 
+
+  const deleteProject = async (id) => {
+    const response = await fetch('http://localhost:5000/deleteProject/' + id, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': localStorage.getItem('token')
+      },
+    });
+    const json = await response.json()
+    console.log(json);
+    const newProject=project.filter((item)=>{
+           return item.user !== id
+    })
+    setProject(newProject)
+
+  }
+
+
   const getProjects = async () => {
     const response = await fetch('http://localhost:5000/getProject', {
       method: 'GET',
@@ -33,7 +52,7 @@ function CreateProduct() {
     console.log(json)
     setProject(json)
   }
-  
+
   // const [note, setNote] = useState({user:"", title: "", description: "", imageUrl: "" })
 
   const handleSubmit = async (e) => {
@@ -86,7 +105,7 @@ function CreateProduct() {
     <>
       <Fragment>
         <form className="create_product_form" onSubmit={handleSubmit}>
-          
+
           <h1>Enter Product Details</h1>
           <div className="input_element">
             <TitleIcon />
@@ -131,7 +150,7 @@ function CreateProduct() {
       </Fragment>
       <div className="row my-3">
         {project.map((note) => {
-          return (<ProductItem note={note} />)
+          return (<ProductItem note={note} deleteProject={deleteProject} />)
         })}
       </div>
     </>
