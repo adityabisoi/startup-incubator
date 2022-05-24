@@ -31,4 +31,16 @@ router.post('/createProject',verifyToken, async (req,res)=>{
       }
 })
 
+router.delete('/deleteProject/:id',verifyToken,async (req,res)=>{
+  const product=await Project.findOneAndDelete({user:req.params.id})
+  try {
+    if(!product) {
+      return res.status(400).send()
+    }
+    res.send(product)
+  } catch(e){
+    res.status(404).send(e)
+  }
+})
+
 module.exports = router;
