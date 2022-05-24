@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Product = () => {
     const style = {
         minHeight: '750px',
-        margin: '0 auto',
+        margin: '20px auto',
         padding: '1.5em',
         width: '80%',
         background: '#FFFFFF',
@@ -18,7 +18,7 @@ const Product = () => {
     };
     const addStyle = {
         height: "100px",
-        width: "1050px",
+        width: "100%",
         border: "0px solid",
         boxShadow: "rgb(0 0 0 / 30%) 0px 0px 5px",
         padding: "10px",
