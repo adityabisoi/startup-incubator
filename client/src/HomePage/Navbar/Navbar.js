@@ -62,8 +62,9 @@ const Navbar = (props) => {
                 <Link to="/new-product" className="link">New Product</Link>
                 )}
                 <li><Link to="" className="link">Integrations</Link></li>
-                <li><Link to="" className="link">Resources</Link></li>
-                <li><Link to="" className="link">About us</Link></li>
+                {/* <li><Link to="" className="link">Resources</Link></li> */}
+                <li><Link to="/aboutus" className="link">About us</Link></li>
+                <li><Link to="/contact" className="link">Contact us</Link></li>
               </ul>
             </div> 
             {!localStorage.getItem("token") ? (
@@ -103,8 +104,9 @@ const Navbar = (props) => {
                 <Link to="/new-product" className="link">New Product</Link>
                 )}
                 <li><Link to="/" className="link">Integrations</Link></li>
-                <li><Link to="/" className="link">Resources</Link></li>
-                <li><Link to="/" className="link">About us</Link></li>
+                {/* <li><Link to="/" className="link">Resources</Link></li> */}
+                <li><Link to="/aboutus" className="link">About us</Link></li>
+                <li><Link to="/contact" className="link">Contact us</Link></li>
             </ul>
             <div className={`toggle-login ${openNav && "open"}`}>
             {!localStorage.getItem("token") ? (
