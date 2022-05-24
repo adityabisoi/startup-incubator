@@ -11,34 +11,3 @@ const Headers = () =>{
   )
 };
 export default Headers;
-
-/*const Headers = () => {
-  return (
-    <div style={{ border: "1px solid black", backgroundColor: "lightblue" }}>
-      <Grid>
-        <Grid.Row>
-          <Grid.Column width={2}>
-            <Image
-              src="Images/icon.jpg"
-              style={{ width: "120px", margin: "0 2rem" }}
-            />
-          </Grid.Column>
-
-
-    )
-}
-
-
-
-            <Link to="/signup">
-              <Button color="blue" basic>
-                SignUp
-              </Button>
-            </Link>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </div>
-  );
-};*/
-

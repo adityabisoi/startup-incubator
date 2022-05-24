@@ -11,7 +11,6 @@ const Fancy = (props)=>{
         let timer = setInterval(()=>{
             if(textsize==='medium' && width>600){
                 setTextSize('large');
-
             }
             else if(textsize==='large' && width>600){
                 setTextSize('medium');

@@ -16,7 +16,8 @@
     border-radius: 50%;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
-    cursor: pointer;    
+    cursor: pointer; 
+    z-index: 1;   
 }
   
 .scrollButton:hover {

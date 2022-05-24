@@ -37,7 +37,7 @@ const ScrollButton = () => {
                 }}>
                 <BiUpArrowAlt />
             </button>
-        </div >
+        </div>
     );
 };
 
