@@ -29,6 +29,7 @@ function App() {
       <Router>
         <div className="App">
           <Headers />
+<<<<<<< HEAD
           <Routes>
             <Route path="/" exact element={<Body />}></Route>
             <Route path="product_details">
@@ -52,6 +53,32 @@ function App() {
             <Route path="/MyProducts" element={<MyProducts />}></Route>
             {/* <Route path="/logout" element={<Login />}></Route> */}
           </Routes>
+=======
+          <div className="main">
+            <Routes>
+              <Route path="/" exact element={<Body />}></Route>
+              <Route path="product_details">
+                <Route path=":product_id" element={<Product />}></Route>
+              </Route>
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="/signup" element={<Register />}></Route>
+              <Route path="/contact" element={<Contact />}></Route>
+              <Route
+                exact
+                path="/reset-password"
+                element={<ForgotPassword />}
+              ></Route>
+              <Route
+                exact
+                path="/reset-password/:token"
+                element={<ResetPassword />}
+              ></Route>
+              <Route path="/new-product" element={<CreateProduct />}></Route>
+              <Route path="/aboutus" element={<Aboutus />}></Route>
+              {/* <Route path="/logout" element={<Login />}></Route> */}
+            </Routes>
+          </div>
+>>>>>>> main
           <div className="scrollbtn">
             <ScrollButton />
           </div>
