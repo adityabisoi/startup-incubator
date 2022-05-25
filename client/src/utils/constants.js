@@ -15,10 +15,12 @@ const dummyData = [
       {
         comment_id: 2,
         comment_text: "product 1, comment text 2",
+        comment_likes:10,
       },
       {
         comment_id: 3,
         comment_text: "product 1, comment text 3",
+        comment_likes:10,
       },
     ],
   },
@@ -33,14 +35,17 @@ const dummyData = [
       {
         comment_id: 1,
         comment_text: "product 2, comment text 1",
+        comment_likes:10,
       },
       {
         comment_id: 2,
         comment_text: "product 2, comment text 2",
+        comment_likes:10,
       },
       {
         comment_id: 3,
         comment_text: "product 2, comment text 3",
+        comment_likes:10,
       },
     ],
   },
@@ -55,14 +60,17 @@ const dummyData = [
       {
         comment_id: 1,
         comment_text: "product 3, comment text 1",
+        comment_likes:10,
       },
       {
         comment_id: 2,
         comment_text: "product 3, comment text 2",
+        comment_likes:10,
       },
       {
         comment_id: 3,
         comment_text: "product 3, comment text 3",
+        comment_likes:10,
       },
     ],
   },
