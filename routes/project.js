@@ -7,6 +7,22 @@ require('dotenv').config();
 
 const router = new express.Router();
 
+
+//For Adding Comments
+router.post('/addComments/:id',verifyToken,async (req,res)=>{
+       const comment=req.body
+       const product=await Project.find({_id:req.params.id})
+       try{
+             if(!product) {
+               return  res.status(400).send('false')
+             }
+             product.comments.push(comment)
+       }catch(e){
+         res.status(404).send('false')
+       }
+})
+
+
 router.get('/getProject',verifyToken,async (req,res)=>{
   try{
     const products=await Project.find({user:req.user._id})

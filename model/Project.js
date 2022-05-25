@@ -22,7 +22,19 @@ const projectSchema = new mongoose.Schema({
   imageUrl: {
     type: String,
     trim: true
-  }
+  },
+  comments: [{
+    id:{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Project'
+    },
+    body: {
+            type:String
+    },
+    likes: {
+            type:Number
+    }
+}]
 } , {
   timestamps: true
 });
