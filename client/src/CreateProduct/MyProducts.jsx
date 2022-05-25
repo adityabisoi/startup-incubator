@@ -44,7 +44,7 @@ function MyProducts() {
   
   return (
     <>
-       <Grid style={{justifyContent: "center"}}>
+       <Grid style={{justifyContent: "center",margin:"50px",marginTop:"0px"}}>
         {project.map((note) => {
           return (<ProductItem note={note} deleteProject={deleteProject} />)
         })}
