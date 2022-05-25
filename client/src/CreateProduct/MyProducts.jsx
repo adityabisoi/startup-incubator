@@ -3,7 +3,8 @@ import "./CreateProduct.css";
 import ProductItem from "./ProductItem";
 import { Grid } from "semantic-ui-react";
 import ProductPreview from "../Components/Product/ProductPreview";
-
+import {Button} from "semantic-ui-react";
+import {Link} from "react-router-dom";
 function MyProducts() {
   const initialProject = []
   const [project, setProject] = useState(initialProject)
@@ -52,6 +53,11 @@ function MyProducts() {
       </Grid>
       ):(<h1 style={{display:"flex",justifyContent: "center",textAlign: "center"}}>☹️ There are no projects created by you !!</h1>)
       }
+      <Link to="/new-product">
+      <div style={{display:"flex",justifyContent: "center"}}>
+      <Button positive> + New Project  </Button>
+      </div>
+      </Link>
     </>
   );
 }
