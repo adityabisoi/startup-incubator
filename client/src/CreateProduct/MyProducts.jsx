@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from "react";
 import "./CreateProduct.css";
 import ProductItem from "./ProductItem";
+import { Grid } from "semantic-ui-react";
+import ProductPreview from "../Components/Product/ProductPreview";
 
 function MyProducts() {
   const initialProject = []
@@ -42,11 +44,11 @@ function MyProducts() {
   
   return (
     <>
-       <div className="row my-3">
+       <Grid style={{justifyContent: "center",margin:"50px",marginTop:"0px"}}>
         {project.map((note) => {
           return (<ProductItem note={note} deleteProject={deleteProject} />)
         })}
-      </div>
+      </Grid>
     </>
   );
 }

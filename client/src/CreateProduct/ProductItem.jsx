@@ -1,19 +1,63 @@
 import React from "react"
+import { Grid, Button, Icon, Image, Header } from "semantic-ui-react";
 
 const ProductItem = (props) => {
+    const style = {
+        margin: "1rem",
+        maxWidth: "400px",
+        backgroundColor: "white",
+        boxShadow: "2px 4px 4px 2px grey",
+      };
+    
+      const hoverStyle = {
+        margin: "1rem",
+        maxWidth: "400px",
+        background: "#7AD7F0",
+        boxShadow: "2px 4px 4px 2px grey",
+      };
+    const [hover, setHover] = React.useState(false);
     return (
-        <div className="col-md-3">
-            <div className="card">
-                <div className="card-body">
-                    <h4>Title:<h5 className="card-title">{props.note.title}</h5></h4>
-                    <h4>Description:<p className="card-text">{props.note.description}</p></h4>
-                    <h4>ImageUrl:<p className="card-text">{props.note.imageUrl}</p></h4>
-                    <button type="button" class="btn btn-dark" onClick={()=>{props.deleteProject(props.note._id)}}>Delete</button>
-                </div>
-            </div>
-        </div>
+        <Grid.Row
+        style={hover ? hoverStyle : style}
+        className="clickme"
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        >
+            <Grid.Row style={{ margin: "auto" }}>
+                <Image src={props.note.imageUrl} size="large" />
+            </Grid.Row>
+
+            <Grid.Row
+                width={1}
+                textAlign="left"
+                style={{ margin: "30px", marginTop: "20px", marginBottom: "0px" }}
+            >
+                <Header as="h1">{props.note.title}</Header>
+                <p style={{ fontSize: "16px", color: "black" }}>{props.note.description}</p>
+            </Grid.Row>
+
+            <Grid.Row
+                width={1}
+                textAlign="right"
+                verticalAlign="middle"
+                style={{ margin: "30px" }}
+            >
+                <Button
+                    style={{ height: "40px" }}
+                    color='red'
+                    onClick={()=>{props.deleteProject(props.note._id)}}
+                >
+                Delete
+                </Button>
+            </Grid.Row>
+
+
+
+        </Grid.Row>
+        
 
     )
 }
 
 export default ProductItem
+

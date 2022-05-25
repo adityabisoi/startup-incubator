@@ -1,70 +1,39 @@
-.nav-wrapper {
-    position: relative;
-}
 .main-nav{
     width: 100%;
     background-color: #1A62F2;
-    height: 5.5rem;
+    height: 9rem;
+    display: grid;
+    grid-template-columns: 1rem 6fr 1.5fr 1.5fr 1.5fr 1.5fr 1fr 1.5fr 8rem;
     position: fixed;
     transition:transform 0.2s;
     z-index: 8;
-    padding: 0 60px;  
+    padding-top: 3rem;
     justify-content: start;
     align-items: center;
-    top: 2.8em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
-.nav-items {
-    display: flex;
-    gap: 40px;
-    height: 100%;
-}
-.nav-links-wrapper {
-    height: 100%;
-}
-.nav-links {
-    display: flex;
-    padding-left: 0;
-    list-style: none;
-    height: 100%;
-}
-.nav-links li{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    position: relative;
-}
-.sign-link {
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-.sign-link .butt {
-    top: 0;
-}
-.nav-links li:hover::before{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-image: linear-gradient(85deg,#7AD7F0,#7AD7F0);
-}
-.nav-links .link, .toggle-nav-link .link{
+.logo, .Sol, .Int, .Res, .Abt{
     color: white;
+    padding-bottom:10px;
     line-height: 10px;
     font-size: larger;
 }
+.Sol:hover, .Int:hover, .Res:hover, .Abt:hover{
+    border-width: 4px;
+    border-image: linear-gradient(85deg,#7AD7F0,#7AD7F0) 0 0 3 0;
+    border-style: solid;
+    padding-bottom:10px;
+    line-height: 50px;
+    cursor: pointer;
+}
+.logo:hover{
+    cursor: pointer;
+}
 .logo {
     grid-column: 2/3;
-    width:80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
+    width:160px;
+    height:100px;
+    position: relative;
+    top: -5px;
 }
 .isActive{
     transform: translateY(-9rem); 
@@ -79,79 +48,26 @@
 #mainLogo{
     background-color: white;
 }
-.toggle-menu {
-    display: none;
-}
-.toggle-menu .menu{
-    font-size: 2.4rem;
-    color: white;
-    cursor: pointer;
-}
-@media screen and (max-width: 1220px) {
-    .main-nav {
-        padding: 0 30px;
+@media screen and (max-width: 1250px) {
+    .main-nav{
+        grid-template-columns: 3rem 4fr 1.5fr 1.5fr 1.5fr 1.5fr 1fr 1fr 3rem;
+
     }
 }
-@media screen and (max-width: 1080px) {
-    .nav-links li {
-        padding: 0 14px
+@media screen and (max-width: 950px) {
+    .main-nav{
+        grid-template-columns: 2rem 2fr 1fr 1fr 1fr 1fr 1fr 1fr 2rem;
+        font-size: smaller;
     }
 }
-@media screen and (max-width: 970px) {
-    .nav-items {
-        gap: 20px;
+@media screen and (max-width: 720px) {
+    .main-nav{
+        grid-template-columns: 0rem 2fr 1fr 1fr 1fr 1fr 1fr 1fr 0rem;
+        font-size:xx-small;
+        height: 9rem;
     }
 }
-@media screen and (max-width: 900px) {
-    .nav-items {
-        gap: 10px;
-    }
-}
-@media screen and (max-width: 840px) {
-    .nav-items {
-        display: none;
-    }
-    .toggle-menu {
-        display: block;
-    }
-}
+
 .abc {
        padding-right: 2rem;
-}
-
-
-/* toggle nav */
-
-.toggle-nav {
-    position: absolute;
-    top: 5.5rem;
-    left: 0;
-    width: 100%;
-    background-color: #1A62F2;
-    height: 0;
-    z-index: 8;
-}
-.toggle-nav.open {
-    padding: 20px 0;
-    height: fit-content;
-}
-.toggle-nav-link{
-    list-style: none;
-    padding-right: 30px;
-    display: none;
-}
-.toggle-nav-link.open{
-    display: block;
-} 
-.toggle-login.open {
-    display: flex;
-}
-.toggle-nav-link li{
-    padding: 10px 0;
-    position: relative;
-}
-.toggle-login {
-    display: flex;
-    padding-left: 20px;
-    display: none;
 }

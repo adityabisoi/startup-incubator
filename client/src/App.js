@@ -50,7 +50,7 @@ function App() {
               ></Route>
               <Route path="/new-product" element={<CreateProduct />}></Route>
               <Route path="/aboutus" element={<Aboutus />}></Route>
-              {/* <Route path="/logout" element={<Login />}></Route> */}
+              <Route path="/MyProducts" element={<MyProducts />}></Route>
             </Routes>
           </div>
           <div className="scrollbtn">
