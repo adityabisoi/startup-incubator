@@ -44,11 +44,14 @@ function MyProducts() {
   
   return (
     <>
-       <Grid style={{justifyContent: "center",margin:"50px",marginTop:"0px"}}>
+      { project.length ?(
+       <Grid style={{justifyContent: "center",margin:"50px",margiTop:"0px"}}>
         {project.map((note) => {
           return (<ProductItem note={note} deleteProject={deleteProject} />)
         })}
       </Grid>
+      ):(<h1 style={{display:"flex",justifyContent: "center",textAlign: "center"}}>☹️ There are no projects created by you !!</h1>)
+      }
     </>
   );
 }
