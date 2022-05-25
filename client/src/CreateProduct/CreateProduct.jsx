@@ -17,44 +17,6 @@ function CreateProduct() {
   let history = useNavigate();
 
 
-
-  // const initialProject = []
-  // const [project, setProject] = useState(initialProject)
-
-
-  // const deleteProject = async (id) => {
-  //   const response = await fetch('http://localhost:5000/deleteProject/' + id, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'auth-token': localStorage.getItem('token')
-  //     }
-  //   });
-  //   const json = await response.json()
-  //   console.log(json);
-  //   const newProject=project.filter((item)=>{
-  //          return item.user !== id
-  //   })
-  //   setProject(newProject)
-
-  // }
-
-
-  // const getProjects = async () => {
-  //   const response = await fetch('http://localhost:5000/getProject', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'auth-token': localStorage.getItem('token')
-  //     }
-  //   });
-  //   const json = await response.json();
-  //   console.log(json)
-  //   setProject(json)
-  // }
-
-  // const [note, setNote] = useState({user:"", title: "", description: "", imageUrl: "" })
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setisLoading(true);
@@ -83,19 +45,6 @@ function CreateProduct() {
       else {
          <Link to="/MyProducts"></Link>
       }
-      // const dummyProducts = JSON.parse(localStorage.getItem("dummyProducts"));
-      // const newProduct = {
-      //   comment: [],
-      //   id: dummyProducts.length + 1,
-      //   heading: title,
-      //   description: description,
-      //   likes: 0,
-      //   imagePath: imageUrl,
-      // };
-      // dummyProducts.push(newProduct);
-      // const newData = JSON.stringify(dummyProducts);
-      // localStorage.setItem("dummyProducts", newData);
-      // setMessage("Created New Product");
     }
 
     setisLoading(false);
