@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import Fancy from './Fancy';
 import './Navbar.css';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Navbar = (props) => {
 	const [startflag, setflag] = useState(false);
@@ -74,9 +76,25 @@ const Navbar = (props) => {
 							</Link>
 						</>
 					) : (
+
 						<div className='abc' onClick={handleclick}>
 							<Button color={'blue'} text={'Logout'}/>
+						<>
+						<Link to='/MyProducts'>
+								<div className='Sol'>
+									<div className='bar'>My Products</div>
+								</div>
+							</Link>
+						<div className='abc'>
+							<button
+								className='btn btn-primary'
+								onClick={handleclick}
+							>
+								Logout
+							</button>
 						</div>
+						
+						</>
 					)}
 				</nav>
 			</div>

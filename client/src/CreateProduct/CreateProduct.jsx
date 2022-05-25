@@ -1,12 +1,12 @@
 import React, { Fragment, useState } from "react";
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 import "./CreateProduct.css";
 import Loader from "../Components/Loader/Loader";
 import TitleIcon from "@mui/icons-material/Title";
 import ImageIcon from "@mui/icons-material/Image";
 import DescriptionIcon from "@mui/icons-material/Description";
 import CloseIcon from "@mui/icons-material/Close";
-import ProductItem from "./ProductItem";
+
 
 function CreateProduct() {
   const [title, setTitle] = useState("");
@@ -18,40 +18,40 @@ function CreateProduct() {
 
 
 
-  const initialProject = []
-  const [project, setProject] = useState(initialProject)
+  // const initialProject = []
+  // const [project, setProject] = useState(initialProject)
 
 
-  const deleteProject = async (id) => {
-    const response = await fetch('http://localhost:5000/deleteProject/' + id, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        'auth-token': localStorage.getItem('token')
-      },
-    });
-    const json = await response.json()
-    console.log(json);
-    const newProject=project.filter((item)=>{
-           return item.user !== id
-    })
-    setProject(newProject)
+  // const deleteProject = async (id) => {
+  //   const response = await fetch('http://localhost:5000/deleteProject/' + id, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'auth-token': localStorage.getItem('token')
+  //     }
+  //   });
+  //   const json = await response.json()
+  //   console.log(json);
+  //   const newProject=project.filter((item)=>{
+  //          return item.user !== id
+  //   })
+  //   setProject(newProject)
 
-  }
+  // }
 
 
-  const getProjects = async () => {
-    const response = await fetch('http://localhost:5000/getProject', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'auth-token': localStorage.getItem('token')
-      }
-    });
-    const json = await response.json();
-    console.log(json)
-    setProject(json)
-  }
+  // const getProjects = async () => {
+  //   const response = await fetch('http://localhost:5000/getProject', {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'auth-token': localStorage.getItem('token')
+  //     }
+  //   });
+  //   const json = await response.json();
+  //   console.log(json)
+  //   setProject(json)
+  // }
 
   // const [note, setNote] = useState({user:"", title: "", description: "", imageUrl: "" })
 
@@ -81,7 +81,7 @@ function CreateProduct() {
         history('/login');
       }
       else {
-        getProjects();
+         <Link to="/MyProducts"></Link>
       }
       // const dummyProducts = JSON.parse(localStorage.getItem("dummyProducts"));
       // const newProduct = {
@@ -148,11 +148,6 @@ function CreateProduct() {
           )}
         </div>
       </Fragment>
-      <div className="row my-3">
-        {project.map((note) => {
-          return (<ProductItem note={note} deleteProject={deleteProject} />)
-        })}
-      </div>
     </>
   );
 }

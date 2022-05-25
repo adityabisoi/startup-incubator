@@ -32,7 +32,7 @@ router.post('/createProject',verifyToken, async (req,res)=>{
 })
 
 router.delete('/deleteProject/:id',verifyToken,async (req,res)=>{
-  const product=await Project.findOneAndDelete({user:req.params.id})
+  const product=await Project.findOneAndDelete({_id:req.params.id})
   try {
     if(!product) {
       return res.status(400).send()
