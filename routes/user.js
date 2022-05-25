@@ -60,6 +60,7 @@ router.post('/reset-password',(req,res)=>{
       if(user)
       {
         user.resetToken = token;
+        user.expireToken = Date.now() + 1200000;
         user.save().then(()=>{
           console.log('resetToken saved');
         })
@@ -76,15 +77,14 @@ router.post('/reset-password',(req,res)=>{
 
 router.post('/change-password',async (req, res)=>{
   const token = req.body.token;
-  const user = await User.findOne({resetToken:token});
+  const user = await User.findOne({resetToken:token ,expireToken:{$gt:Date.now()}});
   if(!user)
   {
-    throw new Error('Please try again');
+    throw new Error('Something went wrong');
   }
   user.password = req.body.password;
   await user.save();
-  res.send({password:user.password,body:req.body})
-
+  res.send({password:user.password,body:req.body});
 
 })
 
