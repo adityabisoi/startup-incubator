@@ -46,10 +46,14 @@ function CreateProduct() {
         history('/login');
       }
       else {
-         <Link to="/MyProducts"></Link>
+        
+         setTitle("");
+         setImageUrl("");
+         setDescription("");
+         setMessage("Product added successfully!!");
+        //  <Link to="/MyProducts"></Link>
       }
     }
-
     setisLoading(false);
   }
 
@@ -64,6 +68,7 @@ function CreateProduct() {
             <input
               type="text"
               placeholder="Title"
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
@@ -73,6 +78,7 @@ function CreateProduct() {
             <textarea
               type="text"
               placeholder="Description"
+              value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
@@ -82,6 +88,7 @@ function CreateProduct() {
             <input
               type="text"
               placeholder="Image URL"
+              value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
             />
           </div>
