@@ -59,7 +59,7 @@ function CreateProduct() {
         <form className="create_product_form" onSubmit={handleSubmit}>
 
           <h1>Enter Product Details</h1>
-          <div className="input_element">
+          <div className="create_input_element">
             <TitleIcon />
             <input
               type="text"
@@ -68,7 +68,7 @@ function CreateProduct() {
             />
           </div>
 
-          <div className="input_element">
+          <div className="create_input_element">
             <DescriptionIcon />
             <textarea
               type="text"
@@ -77,7 +77,7 @@ function CreateProduct() {
             ></textarea>
           </div>
 
-          <div className="input_element">
+          <div className="create_input_element">
             <ImageIcon />
             <input
               type="text"
