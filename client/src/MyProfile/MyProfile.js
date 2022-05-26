@@ -4,6 +4,7 @@ import { Link,useNavigate } from "react-router-dom";
 import {Button} from "semantic-ui-react";
 
 function Register() {
+  let history = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -20,7 +21,11 @@ function Register() {
     {
         //code here
     }
-}
+  }
+  const handleClick = () => {
+    localStorage.removeItem("token");
+    history("/login");
+  };
 
 return (
     <>
@@ -79,8 +84,7 @@ return (
         <div className='btn-container' style={{marginTop: '10px'}}>
         <Button
           color='red' type='submit' className='btn submit-btn'
-          onClick={() => {
-          }}
+          onClick={handleClick}
         >
           Logout
         </Button>

@@ -1,73 +1,93 @@
-.main-nav{
-    width: 100%;
-    background-color: #1A62F2;
-    height: 9rem;
-    display: grid;
-    grid-template-columns: 1rem 6fr 1.5fr 1.5fr 1.5fr 1.5fr 1fr 1.5fr 8rem;
-    position: fixed;
-    transition:transform 0.2s;
-    z-index: 8;
-    padding-top: 3rem;
-    justify-content: start;
-    align-items: center;
+.main-nav {
+  width: 100%;
+  background-color: #1a62f2;
+  height: 9rem;
+  display: grid;
+  grid-template-columns: 1rem 6fr 1.5fr 1.5fr 1.5fr 1.5fr 1fr 1.5fr 8rem;
+  position: fixed;
+  transition: transform 0.2s;
+  z-index: 8;
+  padding-top: 3rem;
+  justify-content: start;
+  align-items: center;
 }
-.logo, .Sol, .Int, .Res, .Abt{
-    color: white;
-    padding-bottom:10px;
-    line-height: 10px;
-    font-size: larger;
+.logo,
+.Sol,
+.Int,
+.Res,
+.Abt {
+  color: white;
+  padding-bottom: 10px;
+  line-height: 10px;
+  font-size: larger;
 }
-.Sol:hover, .Int:hover, .Res:hover, .Abt:hover{
-    border-width: 4px;
-    border-image: linear-gradient(85deg,#7AD7F0,#7AD7F0) 0 0 3 0;
-    border-style: solid;
-    padding-bottom:10px;
-    line-height: 50px;
-    cursor: pointer;
+/* .profile-btn {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
-.logo:hover{
-    cursor: pointer;
+img {
+  width: 15px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 50%;
+} */
+.Sol:hover,
+.Int:hover,
+.Res:hover,
+.Abt:hover {
+  border-width: 4px;
+  border-image: linear-gradient(85deg, #7ad7f0, #7ad7f0) 0 0 3 0;
+  border-style: solid;
+  padding-bottom: 10px;
+  line-height: 50px;
+  cursor: pointer;
+}
+.logo:hover {
+  cursor: pointer;
 }
 .logo {
-    grid-column: 2/3;
-    width:160px;
-    height:100px;
-    position: relative;
-    top: -5px;
+  grid-column: 2/3;
+  width: 160px;
+  height: 100px;
+  position: relative;
+  top: -5px;
 }
-.isActive{
-    transform: translateY(-9rem); 
-    box-shadow: none; 
+.isActive {
+  transform: translateY(-9rem);
+  box-shadow: none;
 }
-.wrapper{
-    height: 9rem;
+.wrapper {
+  height: 9rem;
 }
-.bar{
-    text-align: center;
+.bar {
+  text-align: center;
 }
-#mainLogo{
-    background-color: white;
+#mainLogo {
+  background-color: white;
 }
 @media screen and (max-width: 1250px) {
-    .main-nav{
-        grid-template-columns: 3rem 4fr 1.5fr 1.5fr 1.5fr 1.5fr 1fr 1fr 3rem;
-
-    }
+  .main-nav {
+    grid-template-columns: 3rem 4fr 1.5fr 1.5fr 1.5fr 1.5fr 1fr 1fr 3rem;
+  }
 }
 @media screen and (max-width: 950px) {
-    .main-nav{
-        grid-template-columns: 2rem 2fr 1fr 1fr 1fr 1fr 1fr 1fr 2rem;
-        font-size: smaller;
-    }
+  .main-nav {
+    grid-template-columns: 2rem 2fr 1fr 1fr 1fr 1fr 1fr 1fr 2rem;
+    font-size: smaller;
+  }
 }
 @media screen and (max-width: 720px) {
-    .main-nav{
-        grid-template-columns: 0rem 2fr 1fr 1fr 1fr 1fr 1fr 1fr 0rem;
-        font-size:xx-small;
-        height: 9rem;
-    }
+  .main-nav {
+    grid-template-columns: 0rem 2fr 1fr 1fr 1fr 1fr 1fr 1fr 0rem;
+    font-size: xx-small;
+    height: 9rem;
+  }
 }
 
 .abc {
-       padding-right: 2rem;
+  padding-right: 2rem;
 }
