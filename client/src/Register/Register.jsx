@@ -65,7 +65,7 @@ return (
     <form className="register_form" onSubmit={handleSubmit}>
       <h1 className="register_heading">Sign Up</h1>
 
-      <div className="input_element">
+      <div className="register_input_element">
         <PersonIcon />
         <input
           type="text"
@@ -75,7 +75,7 @@ return (
         />
       </div>
 
-      <div className="input_element">
+      <div className="register_input_element">
         <MailIcon />
         <input
           type="email"
@@ -85,7 +85,7 @@ return (
         />
       </div>
 
-      <div className="input_element">
+      <div className="register_input_element">
         <LockIcon />
         <input
           type={isPasswordVisible ? "text" : "password"}
@@ -97,7 +97,7 @@ return (
           {isPasswordVisible ? <VisibilityIcon /> : <VisibilityOffIcon />}
         </div>
       </div>
-      <div className="input_element">
+      <div className="register_input_element">
         <LockIcon />
         <input
           type={isConfirmPasswordVisible ? "text" : "password"}
@@ -119,7 +119,7 @@ return (
       </div>
 
       <button type="submit">Register</button>
-      <Link to="/login" className="registerlink">
+      <Link to="/login" className="register_link">
         Already registerted?
       </Link>
     </form>

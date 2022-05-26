@@ -30,7 +30,7 @@ function Register() {
 return (
     <>
       <div className='profile-img'>
-        <img src="https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg" alt='profile' />
+        <img src="https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg" alt='profile' className="imgProfile"/>
       </div>
       <div className="data">
       <div className='seperator'>

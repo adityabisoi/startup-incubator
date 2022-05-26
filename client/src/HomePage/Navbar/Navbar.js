@@ -78,6 +78,7 @@ const Navbar = (props) => {
                 src="https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
                 alt="profile"
                 size='mini'
+                className="imgProfile"
               />
             </Link>
           )}

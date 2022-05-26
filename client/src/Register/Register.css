@@ -17,6 +17,13 @@
   margin: 10px 0 3px;
 }
 
+.register_input_element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
 .register_form input {
   font-size: 1.2rem;
   width: 80%;
@@ -38,7 +45,7 @@
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  width:200px;
+  width:100%;
 }
 
 .register_form > button:hover {
@@ -51,7 +58,7 @@
     padding: 20px;
   }
 }
-.registerlink {
+.register_link {
   padding: 10px;
   text-align: center;
 }
