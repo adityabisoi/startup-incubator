@@ -6,7 +6,7 @@ import TitleIcon from "@mui/icons-material/Title";
 import ImageIcon from "@mui/icons-material/Image";
 import DescriptionIcon from "@mui/icons-material/Description";
 import CloseIcon from "@mui/icons-material/Close";
-
+import validator from 'validator'
 
 function CreateProduct() {
   const [title, setTitle] = useState("");
@@ -15,7 +15,7 @@ function CreateProduct() {
   const [isLoading, setisLoading] = useState(false);
   const [message, setMessage] = useState("");
   let history = useNavigate();
-
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +27,10 @@ function CreateProduct() {
       setMessage("Please enter description of the product");
     } else if (!imageUrl) {
       setMessage("Please enter image url of the product");
-    } else {
+    } else if(!(validator.isURL(imageUrl))) {
+      setMessage("Invalid image url");
+    }
+    else {
       const response = await fetch('http://localhost:5000/createProject', {
         method: 'POST',
         headers: {
