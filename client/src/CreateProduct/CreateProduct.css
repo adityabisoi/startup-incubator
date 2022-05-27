@@ -13,6 +13,12 @@
 .create_product_form h1 {
   margin: 0 auto 1rem;
 }
+.create_input_element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
 
 .create_product_form input, .create_product_form textarea {
   font-size: 1.2rem;
@@ -39,6 +45,7 @@
    font-weight: 600;
    background-color: rgb(250, 185, 64);
    cursor: pointer;
+   width: 100%;
  }
  
  .create_product_form > button:hover {

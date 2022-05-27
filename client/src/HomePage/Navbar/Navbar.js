@@ -3,17 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "./Button";
 import Fancy from "./Fancy";
 import "./Navbar.css";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+
+import {Image} from "semantic-ui-react";
 
 const Navbar = (props) => {
+  let id = localStorage.getItem('token')
   const [startflag, setflag] = useState(false);
   let history = useNavigate();
   //To hide navbar when scroll
-  const handleclick = () => {
-    localStorage.removeItem("token");
-    history("/login");
-  };
   useEffect(() => {
     let x = window.scrollY;
     window.addEventListener("scroll", () => {
@@ -76,9 +73,14 @@ const Navbar = (props) => {
               </Link>
             </>
           ) : (
-            <div className="abc" onClick={handleclick}>
-              <Button color={"blue"} text={"Logout"} />
-            </div>
+            <Link to='/MyProfile/{id}' className="profile-btn">
+              <Image
+                src="https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
+                alt="profile"
+                size='mini'
+                className="imgProfile"
+              />
+            </Link>
           )}
         </nav>
       </div>
