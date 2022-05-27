@@ -37,7 +37,7 @@ function CreateProduct() {
           'Content-Type': 'application/json',
           'auth-token': localStorage.getItem('token')
         },
-        body: JSON.stringify({ title: title, description: description, imageUrl: imageUrl })
+        body: JSON.stringify({ title: title, description: description, imageUrl: imageUrl ,likes:0})
       });
       // eslint-disable-next-line no-unused-vars
       const json = await response.json();

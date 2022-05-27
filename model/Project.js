@@ -23,6 +23,9 @@ const projectSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
+  likes:{
+    type: Number
+  },
   comments: [{
     id:{
       type: mongoose.Schema.Types.ObjectId,
@@ -31,7 +34,7 @@ const projectSchema = new mongoose.Schema({
     body: {
             type:String
     },
-    likes: {
+    comment_likes: {
             type:Number
     }
 }]
