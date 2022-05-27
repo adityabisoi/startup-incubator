@@ -1,10 +1,25 @@
+import { use } from "express/lib/application";
 import React from "react";
 import { Grid } from "semantic-ui-react";
 import ProductPreview from "../Components/Product/ProductPreview";
 import { dummyProducts } from "../utils/constants";
+import {useEffect, useState} from "react";
 
 const Body = () => {
   const [visible, setVisible] = React.useState(3);
+  const [products, setProducts] = React.useState(dummyProducts);
+
+  useEffect(() => {
+    fetch('/projects',{
+      method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+  
+          },
+    }).then(response => response.json())
+    .then(response => setProducts(response));
+  })
+  
 
   function viewMore() {
     setVisible(visible + 3);
@@ -16,24 +31,24 @@ const Body = () => {
   return (
     <div
       style={{
-        margin: "1rem",
-        padding: "2rem",
+        margin: "0rem",
+        paddingBottom: "2rem",
         height: "80%",
         minHeight: "750px",
       }}
     >
       <Grid style={{ justifyContent: "center" }}>
-        {dummyProducts.slice(0, visible).map((product) => (
+        {products.slice(0, visible).map((product) => (
           <ProductPreview
             id={product.id}
-            heading={product.heading}
+            heading={product.title}
             description={product.description}
             likes={product.likes}
-            image={product.imagePath}
+            image={product.imageUrl}
           />
         ))}
       </Grid>
-      {visible < dummyProducts.length && (
+      {visible < products.length && (
         <div
           style={{
             display: "flex",
