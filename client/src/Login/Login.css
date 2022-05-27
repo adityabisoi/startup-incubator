@@ -14,10 +14,11 @@
   padding: 40px;
 }
 
-.input_element {
+.login_input_element {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
 }
 
 .login_form input {
@@ -41,13 +42,14 @@
   font-weight: 600;
   background-color: rgb(250, 185, 64);
   cursor: pointer;
+  width: 100%;
 }
 
 .login_form > button:hover {
   transform: scale(1.02);
 }
 
-.message_container {
+.login_message_container {
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -57,7 +59,7 @@
   margin: 20px auto;
 }
 
-.message {
+.login_message {
   width: 100%;
   font-size: 1.1rem;
   background-color: bisque;
@@ -67,7 +69,7 @@
   position: relative;
 }
 
-.close {
+.login_close {
   position: absolute;
   top: 0;
   right: 0;
@@ -82,8 +84,9 @@
   }
 }
 
-.links {
+.login_links {
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  width: 100%;
 }

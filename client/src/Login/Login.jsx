@@ -61,7 +61,7 @@ function Login() {
       <form className="login_form" onSubmit={handleSubmit}>
         <h1 className="login_heading">Login</h1>
 
-        <div className="input_element">
+        <div className="login_input_element">
           <MailIcon />
           <input
             type="email"
@@ -73,7 +73,7 @@ function Login() {
           />
         </div>
 
-        <div className="input_element">
+        <div className="login_input_element">
           <LockIcon />
           <input
             type={isPasswordVisible ? "text" : "password"}
@@ -88,17 +88,17 @@ function Login() {
         </div>
 
         <button type="submit">Login</button>
-        <div className="links">
+        <div className="login_links">
           <Link to="/reset-password">Forgot Password?</Link>
           <Link to="/signup">Create a new account?</Link>
         </div>
       </form>
 
-      <div className="message_container">
+      <div className="login_message_container">
         {isLoading && <Loader />}
 
         {message && (
-          <div className="message">
+          <div className="login_message">
             {message}
             <CloseIcon className="close" onClick={() => setMessage("")} />
           </div>

@@ -45,7 +45,7 @@ const ProductPreview = ({ id, heading, description, image, likes }) => {
     >
       <Grid.Row style={{ margin: "20px" }}>
         <Link to={`/product_details/${id}`}>
-          <Image src={image} size="large" />
+          <Image src={image} size="medium" centered  />
         </Link>
       </Grid.Row>
       <Grid.Row

@@ -22,13 +22,21 @@ router.post('/addComments/:id',verifyToken,async (req,res)=>{
        }
 })
 
+router.get('/projects',async(req,res)=>{
+  try{
+    const products = await Project.find({});
+    res.send(products);
+  }catch(e){
+    res.status(400).send('Something went wrong');
+  }
+})
 
 router.get('/getProject',verifyToken,async (req,res)=>{
   try{
     const products=await Project.find({user:req.user._id})
     res.send(products)
   }catch(e){
-    res.status(400).send("something went wrong")
+    res.status(400).send("Something went wrong")
   }
 })
 
