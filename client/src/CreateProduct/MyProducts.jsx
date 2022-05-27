@@ -55,6 +55,7 @@ function MyProducts() {
       }
       <Link to="/new-product">
       <div style={{display:"flex",justifyContent: "center"}}>
+      
       <Button positive> + New Project  </Button>
       </div>
       </Link>
