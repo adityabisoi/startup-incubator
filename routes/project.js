@@ -2,7 +2,8 @@
 const express = require('express');
 const Project = require('../model/Project');
 const jwt=require('jsonwebtoken');
-const verifyToken=require('../middleware/auth')
+const verifyToken=require('../middleware/auth');
+const { route } = require('express/lib/router');
 require('dotenv').config();
 
 const router = new express.Router();
@@ -65,6 +66,18 @@ router.delete('/deleteProject/:id',verifyToken,async (req,res)=>{
   } catch(e){
     res.status(404).send(e)
   }
+})
+
+router.post('/changeLikes',async (req,res)=>{
+  try{
+    const project = await Project.findOne({_id:req.body.id});
+    project.likes = req.body.likes+1;
+    await project.save(); 
+    res.status(200).send({likes:project.likes});
+  }catch(e){
+    res.status(400).send("Something went wrong");
+  }
+  
 })
 
 module.exports = router;

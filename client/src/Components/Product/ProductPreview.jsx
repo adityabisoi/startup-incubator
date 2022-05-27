@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Grid, Button, Icon, Image, Header } from "semantic-ui-react";
-import { dummyProducts } from "../../utils/constants";
 
 const ProductPreview = ({ id, heading, description, image, likes }) => {
   let linkStyle = {
@@ -24,16 +23,18 @@ const ProductPreview = ({ id, heading, description, image, likes }) => {
     boxShadow: "2px 4px 4px 2px grey",
   };
   const [currentLikes, setCurrentLikes] = React.useState(likes);
-  const [str, setStr] = React.useState(JSON.stringify(dummyProducts));
   const [hover, setHover] = React.useState(false);
 
-  function changeLikes(e) {
-    setCurrentLikes(1 + currentLikes);
-    const parsedObj = JSON.parse(str);
-    parsedObj[id - 1].likes = currentLikes + 2;
-    const jsonObj = JSON.stringify(parsedObj);
-    setStr(jsonObj);
-    localStorage.setItem("dummyProducts", str);
+  async function changeLikes(e) {
+    const response = await fetch('http://localhost:5000/changeLikes',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({id:id,likes:currentLikes})
+    })
+    const res = await response.json();
+    setCurrentLikes(res.likes);
   }
 
   return (
