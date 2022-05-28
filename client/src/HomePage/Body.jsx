@@ -13,7 +13,6 @@ const Body = () => {
       method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-  
           },
     }).then(response => response.json())
     .then(response => setProducts(response));
