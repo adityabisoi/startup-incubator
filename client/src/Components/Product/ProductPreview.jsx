@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Grid, Button, Icon, Image, Header } from "semantic-ui-react";
+import {useNavigate} from "react-router-dom";
 
 const ProductPreview = ({ id, heading, description, image, likes }) => {
   let linkStyle = {
@@ -24,17 +25,24 @@ const ProductPreview = ({ id, heading, description, image, likes }) => {
   };
   const [currentLikes, setCurrentLikes] = React.useState(likes);
   const [hover, setHover] = React.useState(false);
+  let history = useNavigate();
 
   async function changeLikes(e) {
-    const response = await fetch('http://localhost:5000/changeLikes',{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({id:id,likes:currentLikes})
-    })
-    const res = await response.json();
-    setCurrentLikes(res.likes);
+    const JWTtoken = localStorage.getItem('token');
+    if(JWTtoken) {
+      const response = await fetch('http://localhost:5000/changeLikes',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': localStorage.getItem('token')
+        },
+        body: JSON.stringify({id:id,likes:currentLikes,JWTtoken:JWTtoken})
+      })
+      const res = await response.json();
+      setCurrentLikes(res.likes);
+    }else{
+      history('/login');
+    }
   }
 
   return (
