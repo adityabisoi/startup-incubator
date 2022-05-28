@@ -26,6 +26,12 @@ const projectSchema = new mongoose.Schema({
   likes:{
     type: Number
   },
+  peopleLiked:[ {
+    id:{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  }],
   comments: [{
     id:{
       type: mongoose.Schema.Types.ObjectId,
