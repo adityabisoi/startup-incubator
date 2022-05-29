@@ -4,8 +4,8 @@ const User=require('../model/User')
 const verifyToken=async (req,res,next)=>{
     try{
         const token=req.header('auth-token')
-       // console.log('In the middleware')
-       // console.log(token)
+       console.log('In the middleware')
+       console.log(token)
         const decoded=jwt.verify(token,'hello')
         const user= await User.findOne({_id:decoded._id})
         if(!user){

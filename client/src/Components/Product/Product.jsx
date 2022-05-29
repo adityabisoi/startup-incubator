@@ -1,6 +1,5 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useParams} from 'react-router-dom';
-import {dummyProducts as data} from '../../utils/constants';
 import Description from './Description';
 import CommentSection from './CommentSection';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -26,37 +25,35 @@ const Product = () => {
 
     let params = useParams();
     
-    const [currData,setCurrData] = React.useState(data);
+    const [product,setProduct] = React.useState({});
     const [comment, setComment] = React.useState("");
-    const [str, setStr] = React.useState(JSON.stringify(currData));
+
+    useEffect(()=>{
+      fetch(`/getSpecificProject/${params.id}`,{
+        method:'GET',
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response=>response.json())
+      .then(response=>setProduct(response));
+    });
 
     function handleSubmit(e) {
         e.preventDefault();
         
-        const parsedObj = JSON.parse(str);
-
-        parsedObj[params.product_id - 1].comments.push({
-            comment_id:data[params.product_id-1].comments.length+1,
-            comment_text:comment,
-        });
-
-        setCurrData(parsedObj);
-        const jsonObj = JSON.stringify(parsedObj);
-        setStr(jsonObj);
-
-        localStorage.setItem("dummyProducts", jsonObj);
+        
         //Add code here
-        setComment("");
       }
 
     return (
         <div style={style}>
 
-            <h1>Product {params.product_id} is rendered</h1>
+            <h1>Product {product.title} is rendered</h1>
             <Description></Description>
             
             <div style = {{marginTop : '4em'}}><h2>Comments</h2></div>
-            <CommentSection product_data = {currData[params.product_id - 1]}></CommentSection>
+            {/* <CommentSection product_data = {product}></CommentSection> */}
             <div>
             <form>
                 <h1>Add Comments</h1>

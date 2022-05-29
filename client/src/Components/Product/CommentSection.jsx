@@ -6,7 +6,7 @@ export default function CommentSection(props) {
   return (
     <div>
       {data.comments.map((comment) => {
-        return <CommentBlock commentDetails={comment} id={data.id}></CommentBlock>;
+        return <CommentBlock commentDetails={comment} id={data._id}></CommentBlock>;
       })}
     </div>
   );

@@ -68,7 +68,7 @@ router.delete('/deleteProject/:id',verifyToken,async (req,res)=>{
   }
 })
 
-router.post('/changeLikes',async (req,res)=>{
+router.post('/changeLikes',verifyToken,async (req,res)=>{
   try{
     const project = await Project.findOne({_id:req.body.id});
     project.likes = req.body.likes+1;
