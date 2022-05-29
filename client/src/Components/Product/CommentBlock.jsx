@@ -1,10 +1,8 @@
 import React from 'react';
 import { Button, Icon} from "semantic-ui-react";
 
-export default function CommentBlock(props) {
-    let details = props.commentDetails;
-    let id = props.id;
-    const [likes,setLikes] = React.useState(details.comment_likes);
+export default function CommentBlock({comment}) {
+    const [likes,setLikes] = React.useState(0);
     let style = {
         // width:'1200px',
         minHeight:'100px',
@@ -15,18 +13,18 @@ export default function CommentBlock(props) {
     }
     function handleLikes()
     {
-        let str = localStorage.getItem('dummyProducts');
-        let obj = JSON.parse(str);
-        obj[id-1].comments[details.comment_id-1].comment_likes = likes+1;
-        let JsonObj = JSON.stringify(obj);
-        localStorage.setItem('dummyProducts',JsonObj);
-        setLikes(1 + likes);
+        // let str = localStorage.getItem('dummyProducts');
+        // let obj = JSON.parse(str);
+        // obj[id-1].comments[details.comment_id-1].comment_likes = likes+1;
+        // let JsonObj = JSON.stringify(obj);
+        // localStorage.setItem('dummyProducts',JsonObj);
+        // setLikes(1 + likes);
     }
     return (
         <div>
             <div style = {style}>
-                <h4>comment number {details.comment_id}</h4>
-                <p>{details.comment_text}</p>
+                <h4>comment number </h4>
+                <p>{comment.comment_data}</p>
                 <Button
                     icon
                     labelPosition="left"

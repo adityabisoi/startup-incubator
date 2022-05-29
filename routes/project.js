@@ -91,7 +91,7 @@ router.post('/changeLikes',verifyToken,async (req,res)=>{
 
 router.get('/getSpecificProject/:id',async (req,res)=>{
   try{
-    const product=await Project.findOne({_id:req.params.id})
+    const product = await Project.findOne({_id:req.params.id})
     res.send(product)
   }catch(e){
     res.status(400).send("Something went wrong")
