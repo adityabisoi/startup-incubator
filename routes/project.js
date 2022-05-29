@@ -11,13 +11,13 @@ const router = new express.Router();
 
 //For Adding Comments
 router.post('/addComments/:id',verifyToken,async (req,res)=>{
-       const comment=req.body
-       const product=await Project.find({_id:req.params.id})
+       
        try{
-             if(!product) {
-               return  res.status(400).send('false')
-             }
-             product.comments.push(comment)
+        const comment = req.body.newComment;
+        const product = await Project.findOne({_id:req.params.id})
+        product.comments.push({comment_data:comment})
+        await product.save();
+
        }catch(e){
          res.status(404).send('false')
        }

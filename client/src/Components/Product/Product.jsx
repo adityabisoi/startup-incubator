@@ -43,7 +43,16 @@ const Product = () => {
       });
     },[]);
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
+        const res = await fetch(`/addComments/${params.product_id}`,{
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'auth-token':localStorage.getItem('token')
+          },
+          body: JSON.stringify({newComment:newComment})
+        })
+
         e.preventDefault();
         
         
