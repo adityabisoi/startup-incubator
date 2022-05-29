@@ -71,6 +71,15 @@ router.delete('/deleteProject/:id',verifyToken,async (req,res)=>{
 router.post('/changeLikes',verifyToken,async (req,res)=>{
   try{
     const project = await Project.findOne({_id:req.body.id});
+    var doesInclude = false;
+    for(let i=0; i<project.peopleLiked.length; i++){
+      if(project.peopleLiked[i]._id.toString()==req.user._id.toString()){
+      doesInclude = true;
+      }
+    }
+    if(doesInclude){
+      return res.status(200).send('false');
+    }
     project.likes = req.body.likes+1;
     project.peopleLiked.push(req.user.id);
     await project.save(); 
