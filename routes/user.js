@@ -76,16 +76,17 @@ router.post('/reset-password',(req,res)=>{
 });
 
 router.post('/change-password',async (req, res)=>{
-  const token = req.body.token;
-  const user = await User.findOne({resetToken:token ,expireToken:{$gt:Date.now()}});
-  if(!user)
-  {
-    throw new Error('Something went wrong');
-  }
-  user.password = req.body.password;
-  await user.save();
-  res.send({password:user.password,body:req.body});
+  try{
+    const token = req.body.token;
+    const user = await User.findOne({resetToken:token ,expireToken:{$gt:Date.now()}});
+    user.password = req.body.password;
+    await user.save();
+    res.send({password:user.password,body:req.body});
 
+  }catch(e){
+    throw e;
+  }
+  
 })
 
 module.exports = router;
