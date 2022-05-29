@@ -72,12 +72,22 @@ router.post('/changeLikes',verifyToken,async (req,res)=>{
   try{
     const project = await Project.findOne({_id:req.body.id});
     project.likes = req.body.likes+1;
+    project.peopleLiked.push(req.user.id);
     await project.save(); 
     res.status(200).send({likes:project.likes});
   }catch(e){
     res.status(400).send("Something went wrong");
   }
-  
 })
+
+router.get('/getSpecificProject/:id',async (req,res)=>{
+  try{
+    const product=await Project.findOne({_id:req.params.id})
+    res.send(product)
+  }catch(e){
+    res.status(400).send("Something went wrong")
+  }
+})
+
 
 module.exports = router;
