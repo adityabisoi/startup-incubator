@@ -26,26 +26,39 @@ const Product = () => {
     let params = useParams();
     
     const [product,setProduct] = React.useState({});
-    const [comment, setComment] = React.useState("");
+    const [newComment, setNewComment] = React.useState("");
+    const [comments,setComments] = React.useState([]);
 
     useEffect(()=>{
-      fetch(`/getSpecificProject/${params.id}`,{
+      fetch(`/getSpecificProject/${params.product_id}`,{
         method:'GET',
         headers:{
           'Content-Type': 'application/json'
         }
       })
       .then(response=>response.json())
-      .then(response=>setProduct(response));
-    });
+      .then(response=>{  
+        setProduct(response);
+        setComments(response.comments);
+      });
+    },[]);
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
+        const res = await fetch(`/addComments/${params.product_id}`,{
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'auth-token':localStorage.getItem('token')
+          },
+          body: JSON.stringify({newComment:newComment})
+        })
+
         e.preventDefault();
         
         
         //Add code here
       }
-
+      console.log(comments);
     return (
         <div style={style}>
 
@@ -53,15 +66,15 @@ const Product = () => {
             <Description></Description>
             
             <div style = {{marginTop : '4em'}}><h2>Comments</h2></div>
-            {/* <CommentSection product_data = {product}></CommentSection> */}
+            <CommentSection comments = {comments}></CommentSection>
             <div>
             <form>
                 <h1>Add Comments</h1>
                 <textarea
                 className="input-comment"
                 style={addStyle}
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
             />
             <button
             className="btn bg-warning butn"

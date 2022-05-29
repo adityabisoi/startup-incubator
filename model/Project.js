@@ -37,7 +37,7 @@ const projectSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Project'
     },
-    body: {
+    comment_data: {
             type:String
     },
     comment_likes: {
