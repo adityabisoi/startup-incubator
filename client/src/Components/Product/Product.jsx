@@ -66,7 +66,7 @@ const Product = () => {
             <Description></Description>
             
             <div style = {{marginTop : '4em'}}><h2>Comments</h2></div>
-            <CommentSection comments = {comments}></CommentSection>
+            <CommentSection comments = {comments} product_id={product._id}></CommentSection>
             <div>
             <form>
                 <h1>Add Comments</h1>
