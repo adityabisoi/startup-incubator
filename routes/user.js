@@ -89,4 +89,8 @@ router.post('/change-password',async (req, res)=>{
   
 })
 
+router.get('/getCurrentUser',verifyToken,async(req, res)=>{
+  res.send(req.user);
+})
+
 module.exports = router;

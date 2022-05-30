@@ -3,7 +3,25 @@ import { Link } from "react-router-dom";
 import { Grid, Button, Icon, Image, Header } from "semantic-ui-react";
 import {useNavigate} from "react-router-dom";
 
-const ProductPreview = ({ id, createrName, heading, description, image, likes }) => {
+const ProductPreview = ({ id, createrName,heading, description, image, likes, whoLiked }) => {
+  const [userId,setUserId] = React.useState(false);
+  fetch('/getCurrentUser',{
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      'auth-token': localStorage.getItem('token')
+    }
+  })
+  .then(response =>response.json())
+  .then(response =>{
+    for(let i=0;i<whoLiked.length;i++)
+    {
+      if(whoLiked[i]._id.toString()===response._id){
+        setUserId(true);
+      }
+    }
+  });
+
   let linkStyle = {
     border: "1px solid orange",
     padding: "0.3em",
@@ -82,6 +100,7 @@ const ProductPreview = ({ id, createrName, heading, description, image, likes })
           labelPosition="left"
           style={{ height: "40px" }}
           onClick={changeLikes}
+          color={userId?'blue':'grey'}
         >
           <Icon name="arrow alternate circle up" />
           {currentLikes}
