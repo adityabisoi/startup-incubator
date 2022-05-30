@@ -39,6 +39,7 @@ const Body = () => {
         {products.slice(0, visible).map((product) => (
           <ProductPreview
             id={product._id}
+            createrName={product.createrName}
             heading={product.title}
             description={product.description}
             likes={product.likes}
