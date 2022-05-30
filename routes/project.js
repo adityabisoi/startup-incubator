@@ -78,14 +78,14 @@ router.post('/changeLikes',verifyToken,async (req,res)=>{
       }
     }
     if(doesInclude){
-      return res.status(200).send('false');
+      return res.status(400).send('false');
     }
     project.likes = req.body.likes+1;
     project.peopleLiked.push(req.user.id);
     await project.save(); 
     res.status(200).send({likes:project.likes});
   }catch(e){
-    res.status(400).send("Something went wrong");
+    res.status(400).send("false");
   }
 })
 
@@ -98,7 +98,7 @@ router.get('/getSpecificProject/:id',async (req,res)=>{
   }
 })
 
-router.post('/incrementCommentLikes/:product_id',async (req, res)=>{
+router.post('/incrementCommentLikes/:product_id',verifyToken,async (req, res)=>{
   try{
     const project = await Project.findOne({_id: req.params.product_id});
     var ans = -1;
@@ -110,7 +110,9 @@ router.post('/incrementCommentLikes/:product_id',async (req, res)=>{
         ans = i;
       }
     }
-    if(ans != -1){
+    if(ans == -1){
+      res.status(400).send('false');
+    }else{
       res.send(project.comments[ans]);
     }
   }catch(e){

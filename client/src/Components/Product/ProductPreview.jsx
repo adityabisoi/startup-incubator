@@ -5,22 +5,25 @@ import {useNavigate} from "react-router-dom";
 
 const ProductPreview = ({ id, createrName,heading, description, image, likes, whoLiked }) => {
   const [userId,setUserId] = React.useState(false);
-  fetch('/getCurrentUser',{
-    method: 'GET',
-    headers: {
-      'content-type': 'application/json',
-      'auth-token': localStorage.getItem('token')
-    }
-  })
-  .then(response =>response.json())
-  .then(response =>{
-    for(let i=0;i<whoLiked.length;i++)
-    {
-      if(whoLiked[i]._id.toString()===response._id){
-        setUserId(true);
+  if(localStorage.getItem('token')){
+    fetch('/getCurrentUser',{
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'auth-token': localStorage.getItem('token')
       }
-    }
-  });
+    })
+    .then(response =>response.json())
+    .then(response =>{
+      for(let i=0;i<whoLiked.length;i++)
+      {
+        if(whoLiked[i]._id.toString()===response._id){
+          setUserId(true);
+        }
+      }
+    });
+  }
+  
 
   let linkStyle = {
     border: "1px solid orange",
@@ -52,12 +55,14 @@ const ProductPreview = ({ id, createrName,heading, description, image, likes, wh
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'auth-token': localStorage.getItem('token')
+          'auth-token': JWTtoken
         },
         body: JSON.stringify({id:id,likes:currentLikes,JWTtoken:JWTtoken})
       })
       const res = await response.json();
-      if(res!==false){
+      if(res===false){
+        history('/login');
+      }else{
         setCurrentLikes(res.likes);
       }
     }else{
