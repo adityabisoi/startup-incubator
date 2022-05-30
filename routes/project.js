@@ -98,5 +98,25 @@ router.get('/getSpecificProject/:id',async (req,res)=>{
   }
 })
 
+router.post('/incrementCommentLikes/:product_id',async (req, res)=>{
+  try{
+    const project = await Project.findOne({_id: req.params.product_id});
+    var ans = -1;
+    for(let i = 0;i<project.comments.length;i++){
+      if(req.body.comment_id==project.comments[i]._id.toString())
+      {
+        project.comments[i].comment_likes++;
+        await project.save();
+        ans = i;
+      }
+    }
+    if(ans != -1){
+      res.send(project.comments[ans]);
+    }
+  }catch(e){
+    res.status(400).send('false');
+  }
+})
+
 
 module.exports = router;

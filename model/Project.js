@@ -44,7 +44,8 @@ const projectSchema = new mongoose.Schema({
             type:String
     },
     comment_likes: {
-            type:Number
+            type:Number,
+            default:0
     }
 }]
 } , {
