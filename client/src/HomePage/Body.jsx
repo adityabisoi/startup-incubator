@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 const Body = () => {
   const [visible, setVisible] = React.useState(3);
   const [products,setProducts] = React.useState([]);
+  
 
   useEffect(() => {
     fetch('/projects',{
@@ -43,6 +44,7 @@ const Body = () => {
             description={product.description}
             likes={product.likes}
             image={product.imageUrl}
+            whoLiked={product.peopleLiked}
           />
         ))}
       </Grid>
