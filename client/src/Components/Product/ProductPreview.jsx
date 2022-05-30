@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Grid, Button, Icon, Image, Header } from "semantic-ui-react";
 import {useNavigate} from "react-router-dom";
 
-const ProductPreview = ({ id, heading, description, image, likes, whoLiked }) => {
+const ProductPreview = ({ id, createrName,heading, description, image, likes, whoLiked }) => {
   const [userId,setUserId] = React.useState(false);
   fetch('/getCurrentUser',{
     method: 'GET',
@@ -57,7 +57,7 @@ const ProductPreview = ({ id, heading, description, image, likes, whoLiked }) =>
         body: JSON.stringify({id:id,likes:currentLikes,JWTtoken:JWTtoken})
       })
       const res = await response.json();
-      if(res!=false){
+      if(res!==false){
         setCurrentLikes(res.likes);
       }
     }else{
@@ -83,6 +83,8 @@ const ProductPreview = ({ id, heading, description, image, likes, whoLiked }) =>
         style={{ margin: "30px", marginTop: "0px", marginBottom: "0px" }}
       >
         <Link to={`/product_details/${id}`}>
+          <Header as="h3">CREATOR: {createrName}</Header>
+          <br></br>
           <Header as="h1">{heading}</Header>
           <p style={{ fontSize: "16px", color: "black" }}>{description}</p>
         </Link>

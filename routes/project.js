@@ -46,7 +46,7 @@ router.post('/createProject',verifyToken, async (req,res)=>{
 
     //Adding the user field and setting its value to the userId that came from the middleware while authentication
     //Using the Javascript spread operator for concatenating fields
-    const project=new Project({user:req.user._id,...req.body});
+    const project=new Project({user:req.user._id,createrName:req.user.name,...req.body});
     try {
         await project.save();
         res.status(201).send('true');
