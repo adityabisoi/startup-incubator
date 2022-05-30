@@ -93,4 +93,15 @@ router.get('/getCurrentUser',verifyToken,async(req, res)=>{
   res.send(req.user);
 })
 
+router.post('/updateData',verifyToken,async(req, res)=>{
+  try{
+    const user = await User.findOne({email:req.user.email});
+    user.name = req.body.name;
+    user.email = req.body.email;
+    await user.save();
+    res.send(user);
+  }catch(err){
+    res.send(err);
+  }
+})
 module.exports = router;
