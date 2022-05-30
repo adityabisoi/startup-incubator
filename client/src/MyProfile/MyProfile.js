@@ -19,6 +19,7 @@ function Register() {
     } 
     else
     {
+
         //code here
     }
   }
@@ -26,6 +27,19 @@ function Register() {
     localStorage.removeItem("token");
     history("/login");
   };
+  async function updateData(){
+      const res = await fetch('/updateData',{
+        method: 'POST',
+        headers:{
+          'content-type': 'application/json',
+          'auth-token':localStorage.getItem('token')
+        },
+        body: JSON.stringify({email:email,name:name})
+      })
+      await res.json();
+      setName(res.name);
+      setEmail(res.email);
+  }
 
 return (
     <>
@@ -37,7 +51,7 @@ return (
         <hr />
         <span>Display Name</span>
       </div>
-      <form >
+      <form  onSubmit={updateData}>
         <div className='form-control'>
           <input
             type='text'
@@ -55,15 +69,6 @@ return (
             placeholder='Email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className='form-control'>
-          <input
-            type='number'
-            className='input'
-            placeholder='Contact No'
-            value={contactNo}
-            onChange={(e) => setContactNo(e.target.value)}
           />
         </div>
         <Button color='green' type='submit' className='btn submit-btn'>
