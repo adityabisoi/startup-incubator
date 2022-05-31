@@ -63,7 +63,7 @@ const Product = () => {
         <div style={style}>
 
             <h1>Product {product.title} is rendered</h1>
-            <Description></Description>
+            <Description imageUrl = {product.imageUrl} description={product.description}></Description>
             
             <div style = {{marginTop : '4em'}}><h2>Comments</h2></div>
             <CommentSection comments = {comments} product_id={product._id}></CommentSection>
