@@ -5,6 +5,27 @@ import {useNavigate} from "react-router-dom";
 export default function CommentBlock({comment,product_id}) {
     let history = useNavigate();
     const[likes,setLikes] = React.useState(comment.comment_likes);
+    const [hasLiked,setHasLiked] = React.useState(false);
+    
+    if(localStorage.getItem('token')){
+        fetch('/getCurrentUser',{
+          method: 'GET',
+          headers: {
+            'content-type': 'application/json',
+            'auth-token': localStorage.getItem('token')
+          }
+        })
+        .then(response =>response.json())
+        .then(response =>{
+          for(let i=0;i<comment.whoLikedComment.length;i++)
+          {
+            if(comment.whoLikedComment[i]._id.toString()===response._id){
+              setHasLiked(true);
+            }
+          }
+        });
+      }
+
     let style = {
         // width:'1200px',
         minHeight:'100px',
@@ -40,6 +61,7 @@ export default function CommentBlock({comment,product_id}) {
                     labelPosition="left"
                     style={{ height: "40px" }}
                     onClick={handleLikes}
+                    color={hasLiked?'blue':'white'}
                     >
                     <i class="thumbs up icon"></i>
                     {likes}
