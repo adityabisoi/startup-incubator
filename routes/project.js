@@ -102,18 +102,29 @@ router.post('/incrementCommentLikes/:product_id',verifyToken,async (req, res)=>{
   try{
     const project = await Project.findOne({_id: req.params.product_id});
     var ans = -1;
-    for(let i = 0;i<project.comments.length;i++){
+    for(var i = 0;i<project.comments.length;i++){
       if(req.body.comment_id==project.comments[i]._id.toString())
       {
-        project.comments[i].comment_likes++;
-        await project.save();
-        ans = i;
+        var doesInclude = false;
+        for(var j=0; j<project.comments[i].whoLikedComment.length; j++){
+          if(project.comments[i].whoLikedComment[j]._id.toString()==req.user._id){
+            doesInclude = true;
+          }
+        }
+        if(!doesInclude){
+          project.comments[i].comment_likes++;
+          project.comments[i].whoLikedComment.push(req.user._id);
+          await project.save();
+          ans = i;
+        }else{
+          throw new Error();
+        }
       }
     }
     if(ans == -1){
-      res.status(400).send('false');
+      throw new Error();
     }else{
-      res.send(project.comments[ans]);
+      res.status(200).send(project.comments[ans]);
     }
   }catch(e){
     res.status(400).send('false');
