@@ -26,10 +26,8 @@ export default function CommentBlock({comment,product_id}) {
                 body: JSON.stringify({comment_id:comment._id})
             });
             await res.json();
-            if(res!==false){
+            if(res.status!=400){
                 setLikes(likes+1);
-            }else{
-                history('/login');
             }
         }
     }
