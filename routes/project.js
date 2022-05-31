@@ -132,4 +132,28 @@ router.post('/incrementCommentLikes/:product_id',verifyToken,async (req, res)=>{
 })
 
 
+router.patch("/editProject/:id",verifyToken,async (req,res)=>{
+  const updates=Object.keys(req.body)
+  const allowedupdates=['title','imageUrl','description']  
+  const isvalidoperation=updates.every((update)=>{return allowedupdates.includes(update)})
+  if(!isvalidoperation)
+  {
+      return res.status(404).send()
+  }
+  try{
+      const _id=req.params.id
+      const note=await Project.findById(_id)
+      updates.forEach((update)=>{
+      note[update]=req.body[update]   
+      })
+      await note.save()
+      if(!note){
+         return res.status(404).send()
+      }
+      res.send(note)
+  }catch(e){
+      res.status(400).send(e)
+  }
+})
+
 module.exports = router;

@@ -15,6 +15,7 @@ import Register from "./Register/Register";
 import ResetPassword from "./ForgotPasswordPage/ResetPassword";
 import MyProducts from "./CreateProduct/MyProducts";
 import MyProfile from "./MyProfile/MyProfile";
+import EditProduct from "./CreateProduct/EditProduct";
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -53,6 +54,7 @@ function App() {
               <Route path="/aboutus" element={<Aboutus />}></Route>
               <Route path="/MyProducts" element={<MyProducts />}></Route>
               <Route path ="MyProfile/:id" element={<MyProfile />}></Route>
+              <Route path ="/EditProject" element={<EditProduct />}></Route>
             </Routes>
           </div>
           <div className="scrollbtn">
