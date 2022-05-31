@@ -12,6 +12,8 @@ function Register() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [contactNo, setContactNo] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -58,6 +60,25 @@ function Register() {
     setEmail(res.email);
   }
 
+  async function updatePassword(){
+    if(newPassword !== confirmNewPassword){
+      setMessage("Passwords didn't match");
+    }else{
+      const res = await fetch('/updatePassword',{
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'auth-token': localStorage.getItem('token')
+        },
+        body: JSON.stringify({ password:newPassword})
+      })
+      await res.json();
+      if(res===false){
+        setMessage("Password can not be changed");
+      }
+    }
+  }
+
   return (
     <>
       <div className='profile-img'>
@@ -86,6 +107,34 @@ function Register() {
               placeholder='Email'
               value={placeEmail}
               onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <Button color='green' type='submit' className='btn submit-btn'>
+            save
+          </Button>
+        </form>
+
+        <div className='seperator'>
+          <hr />
+          <span>Change password</span>
+        </div>
+        <form onSubmit={updatePassword}>
+          <div className='form-control'>
+            <input
+              type='password'
+              className='input'
+              placeholder="New Password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+          </div>
+          <div className='form-control'>
+            <input
+              type='password'
+              className='input'
+              placeholder='Confirm New Password'
+              value={confirmNewPassword}
+              onChange={(e) => setConfirmNewPassword(e.target.value)}
             />
           </div>
           <Button color='green' type='submit' className='btn submit-btn'>
