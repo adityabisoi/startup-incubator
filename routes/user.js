@@ -104,4 +104,15 @@ router.post('/updateData',verifyToken,async(req, res)=>{
     res.send(err);
   }
 })
+
+router.post('/updatePassword',verifyToken,async (req, res)=>{
+  try{
+    const user = await User.findOne({email:req.user.email});
+    user.password = req.body.password;
+    await user.save();
+    res.send(user);
+  }catch(e){
+    res.send(false);
+  }
+})
 module.exports = router;
