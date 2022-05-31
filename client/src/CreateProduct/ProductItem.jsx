@@ -1,7 +1,9 @@
 import React from "react"
+import {useNavigate} from "react-router-dom"
 import { Grid, Button, Icon, Image, Header } from "semantic-ui-react";
 
 const ProductItem = (props) => {
+    let history=useNavigate()
     const style = {
         margin: "1rem",
         maxWidth: "400px",
@@ -43,11 +45,18 @@ const ProductItem = (props) => {
                 style={{ margin: "30px" }}
             >
                 <Button
-                    style={{ height: "40px" }}
+                    style={{ height: "40px" ,marginBottom:"8px"}}
                     color='red'
                     onClick={()=>{props.deleteProject(props.note._id)}}
                 >
                 Delete
+                </Button>
+                <Button
+                    style={{ height: "40px" }}
+                    color='grey'
+                    onClick={()=>{history('/EditProject?id='+props.note._id+'&title='+props.note.title+'&description='+props.note.description+'&imageUrl='+props.note.imageUrl)}}
+                >
+                Edit
                 </Button>
             </Grid.Row>
 
