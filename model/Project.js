@@ -46,7 +46,13 @@ const projectSchema = new mongoose.Schema({
     comment_likes: {
             type:Number,
             default:0
-    }
+    },
+    whoLikedComment:[ {
+      id:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+      }
+    }]
 }]
 } , {
   timestamps: true

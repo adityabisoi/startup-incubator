@@ -106,6 +106,7 @@ router.post('/incrementCommentLikes/:product_id',verifyToken,async (req, res)=>{
       if(req.body.comment_id==project.comments[i]._id.toString())
       {
         project.comments[i].comment_likes++;
+        project.comments[i].whoLikedComment.push(req.user._id);
         await project.save();
         ans = i;
       }

@@ -60,9 +60,7 @@ const ProductPreview = ({ id, createrName,heading, description, image, likes, wh
         body: JSON.stringify({id:id,likes:currentLikes,JWTtoken:JWTtoken})
       })
       const res = await response.json();
-      if(res===false){
-        history('/login');
-      }else{
+      if(res!==false){
         setCurrentLikes(res.likes);
       }
     }else{
